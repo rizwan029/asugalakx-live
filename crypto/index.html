@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto — ASUGALAKX</title>
+  <meta name="description" content="Crypto market snapshot: BTC, ETH and SOL sample prices with charts, gainers and losers, trending assets, news and research context. Demo data only.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Crypto — ASUGALAKX">
+  <meta property="og:description" content="Sample crypto snapshot — BTC, ETH, SOL prices, gainers/losers, trending assets, news and research context. Demonstration data.">
+  <meta property="og:url" content="https://asugalakx.com/crypto/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crypto — ASUGALAKX">
+  <meta name="twitter:description" content="Sample crypto snapshot — BTC, ETH, SOL prices, gainers/losers, trending assets, news and research context. Demonstration data.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .gauge{position:relative;height:10px;border-radius:999px;background:linear-gradient(90deg,#EF4444,#F59E0B 40%,#FACC15 55%,#22C55E);margin-top:12px}
+    .gauge-marker{position:absolute;top:-5px;width:4px;height:20px;background:#F5F5F5;border-radius:2px;transform:translateX(-50%)}
+    .gauge-scale{display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-3);margin-top:6px}
+    .trend-list{list-style:none;margin:0;padding:0}
+    .trend-list li{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border-soft)}
+    .trend-list li:last-child{border-bottom:0}
+    .trend-rank{font-family:var(--font-head);font-size:1.25rem;color:var(--text-3);min-width:28px}
+    .trend-main{flex:1}
+  </style>
+  <script>window.ASGX_PAGE = { title: "Crypto", active: "markets" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <nav class="container" aria-label="Breadcrumb" style="padding-top:24px">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/markets/">Markets</a></li>
+        <li aria-current="page">Crypto</li>
+      </ol>
+    </nav>
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Market Data</span>
+        <h1>CRYPTO</h1>
+        <p class="lead">Sample snapshot of major cryptoassets — prices, breadth and context.</p>
+        <p class="mt-4"><span class="badge badge-demo">DEMO DATA</span></p>
+        <p class="text-muted mt-4" style="max-width:640px">All crypto figures shown are fictional sample data for demonstration purposes only. They are not live prices and do not constitute financial advice.</p>
+      </div>
+    </section>
+
+    <!-- MARKET OVERVIEW -->
+    <section class="section section--flush-top" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Overview</span>
+            <h2 class="section-title" id="overview-title">Market Overview</h2>
+            <p class="section-sub">Bitcoin sample price path over the trailing session window.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title-row">
+            <h3 class="card-title">BTC &mdash; sample session path</h3>
+            <span class="badge badge-cat">illustrative</span>
+          </div>
+          <div class="chart-holder" id="btc-line-chart"></div>
+          <div class="chart-legend">
+            <span class="legend-item"><span class="legend-swatch" id="btc-legend-swatch"></span>BTC sample series</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY ASSETS -->
+    <section class="section section--tight" aria-labelledby="key-assets-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Key Assets</span>
+            <h2 class="section-title" id="key-assets-title">Leading Cryptoassets</h2>
+            <p class="section-sub">Sample quotes for the three largest assets in the demo set.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="grid-cards" id="crypto-cards" role="list" aria-label="Leading cryptoassets"></div>
+
+        <div class="stat-row mt-8" role="list" aria-label="Crypto market statistics (sample)">
+          <div class="stat" role="listitem">
+            <span class="stat-value" id="stat-dominance">&mdash;</span>
+            <span class="stat-label">BTC dominance (sample share of demo set)</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-value" id="stat-volume">&mdash;</span>
+            <span class="stat-label">Combined 24h volume, crypto set (sample)</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-value" id="stat-fg">64<span class="text-muted" style="font-size:.6em"> /100</span></span>
+            <span class="stat-label">Fear &amp; Greed index &mdash; concept gauge, demo</span>
+            <div class="gauge" role="img" aria-label="Illustrative Fear and Greed gauge at 64 of 100, labeled Greed. Concept demonstration only.">
+              <div class="gauge-marker" style="left:64%"></div>
+            </div>
+            <div class="gauge-scale"><span>Extreme Fear</span><span>Neutral</span><span>Extreme Greed</span></div>
+          </div>
+        </div>
+        <p class="table-note mt-6">Dominance and volume are computed from the fictional sample dataset for illustration only. The Fear &amp; Greed gauge is a concept demonstration, not a live sentiment reading.</p>
+      </div>
+    </section>
+
+    <!-- GAINERS / LOSERS -->
+    <section class="section section--tight" aria-labelledby="movers-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Breadth</span>
+            <h2 class="section-title" id="movers-title">Top Gainers &amp; Top Losers</h2>
+            <p class="section-sub">Computed from 24-hour changes within the sample crypto set.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="grid-12">
+          <div class="col-6">
+            <h3 class="card-title mb-4">Top gainers</h3>
+            <div class="grid-cards" id="gainers" role="list" aria-label="Top gaining cryptoassets"></div>
+          </div>
+          <div class="col-6">
+            <h3 class="card-title mb-4">Top losers</h3>
+            <div class="grid-cards" id="losers" role="list" aria-label="Weakest cryptoassets in the sample set"></div>
+          </div>
+        </div>
+        <p class="table-note mt-6">&ldquo;Losers&rdquo; are the weakest performers within the fictional sample set, not real market declines. All figures are sample data.</p>
+      </div>
+    </section>
+
+    <!-- TRENDING -->
+    <section class="section section--tight" aria-labelledby="trending-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Attention</span>
+            <h2 class="section-title" id="trending-title">Trending</h2>
+            <p class="section-sub">Ranked by sample 24-hour volume in the demo dataset.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="card">
+          <ol class="trend-list" id="trending-list"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="section section--tight" aria-labelledby="crypto-news-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">News</span>
+            <h2 class="section-title" id="crypto-news-title">Crypto News</h2>
+            <p class="section-sub">Latest crypto desk coverage from the ASUGALAKX newsroom.</p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/news/">All news &rarr;</a>
+        </div>
+        <div class="grid-cards" id="crypto-news" role="list" aria-label="Crypto news articles"></div>
+      </div>
+    </section>
+
+    <!-- ANALYSIS -->
+    <section class="section section--tight" aria-labelledby="crypto-analysis-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Analysis</span>
+            <h2 class="section-title" id="crypto-analysis-title">Analysis</h2>
+            <p class="section-sub">Market and technical context pieces relevant to crypto.</p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/analysis/">All analysis &rarr;</a>
+        </div>
+        <div class="grid-cards grid-cards--lg" id="crypto-analysis" role="list" aria-label="Crypto analysis articles"></div>
+        <p class="table-note mt-6">This content is for informational and educational purposes only and does not constitute financial advice.</p>
+      </div>
+    </section>
+
+    <!-- ON-CHAIN CONTEXT -->
+    <section class="section section--tight" aria-labelledby="onchain-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Education</span>
+            <h2 class="section-title" id="onchain-title">On-chain Context</h2>
+            <p class="section-sub">Educational notes on how on-chain data is read by analysts.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="callout">
+          <strong>Educational context only.</strong> The notes below explain on-chain concepts in general terms. They are not live blockchain data, not readings from any network, and not signals to act on.
+        </div>
+        <div class="grid-cards mt-8">
+          <article class="card">
+            <h3 class="card-title">Exchange flows</h3>
+            <p class="card-text">Net exchange inflows are often read as potential sell-side pressure and outflows as accumulation. In practice, flows also reflect internal exchange rebalancing, so single-day prints are noisy and best viewed as multi-week trends.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Fee and usage dynamics</h3>
+            <p class="card-text">Sustained fee revenue generally indicates genuine network demand rather than speculative churn. Analysts compare fee trends against price to check whether usage supports valuation narratives.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Holder behavior cohorts</h3>
+            <p class="card-text">Coins are commonly grouped by holding duration. Long-term holder supply rising during consolidations has historically been associated with digestion phases; it describes positioning, not future direction.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+  <script>
+    document.addEventListener("asgx:ready", function () {
+      "use strict";
+      var D = window.ASGX_DATA;
+      var C = window.ASGX_CHARTS;
+      var DEMO = D.meta.demoLabel;
+      var NEWS_IMAGES = {
+        crypto: "/assets/img/asgx-coin.jpg",
+        web3: "/assets/img/tokenomics.jpg",
+        macro: "/assets/img/movement.jpg",
+        stocks: "/assets/img/website-structure.jpg",
+        forex: "/assets/img/ecosystem-overview.jpg"
+      };
+
+      function esc(s) {
+        return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      }
+      function fmtPrice(v) {
+        var dec = Math.abs(v) < 10 ? 4 : 2;
+        return Number(v).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+      }
+      function fmtChange(v) {
+        return (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+      }
+      function fmtDate(iso) {
+        var d = new Date(iso + "T12:00:00");
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+      }
+      function bySymbol(sym) {
+        return D.assets.filter(function (a) { return a.symbol === sym; })[0];
+      }
+      function capBillions(m) {
+        if (!m || m === "\u2014") return 0;
+        var mm = String(m).match(/^([\d.]+)([TBMK])$/);
+        if (!mm) return 0;
+        var mult = { T: 1000, B: 1, M: 0.001, K: 0.000001 }[mm[2]];
+        return parseFloat(mm[1]) * mult;
+      }
+      function dataCard(a, listLabel) {
+        var up = a.change24h >= 0;
+        var card = document.createElement("article");
+        card.className = "card card--lift data-card";
+        card.setAttribute("role", "listitem");
+        card.innerHTML =
+          '<div class="data-card-top"><div>' +
+            '<div class="data-card-symbol">' + esc(a.symbol) + "</div>" +
+            '<div class="data-card-name">' + esc(a.name) + "</div>" +
+          '</div><span class="badge badge-demo">' + esc(DEMO) + "</span></div>" +
+          '<div class="data-card-price">' + fmtPrice(a.price) + "</div>" +
+          '<div class="data-card-change ' + (up ? "up" : "down") + '">' + fmtChange(a.change24h) +
+            ' <span class="text-muted" style="font-weight:400">24h</span></div>' +
+          '<div class="data-card-spark" aria-hidden="true"></div>' +
+          '<div class="data-card-meta">' +
+            "<span>Volume<b>" + esc(a.volume) + "</b></span>" +
+            '<span style="text-align:right">Mkt Cap<b>' + esc(a.marketCap) + "</b></span>" +
+          "</div>";
+        return card;
+      }
+      function addCard(wrap, a, sparkLabel) {
+        var card = dataCard(a);
+        wrap.appendChild(card);
+        C.sparkline(card.querySelector(".data-card-spark"), a.spark, { ariaLabel: sparkLabel });
+      }
+
+      var crypto = D.assets.filter(function (a) { return a.category === "crypto"; });
+
+      /* ---------- Market overview: BTC line chart ---------- */
+      var btc = bySymbol("BTC");
+      if (btc) {
+        var up = btc.spark[btc.spark.length - 1] >= btc.spark[0];
+        var color = up ? "#22C55E" : "#EF4444";
+        var labels = btc.spark.map(function (_, i) {
+          return i === btc.spark.length - 1 ? "now" : "\u2212" + (btc.spark.length - 1 - i) + "h";
+        });
+        C.line(document.getElementById("btc-line-chart"),
+          { label: "BTC (sample)", color: color, data: btc.spark },
+          { labels: labels, ariaLabel: "Line chart of a fictional Bitcoin sample price path over the trailing session window." });
+        document.getElementById("btc-legend-swatch").style.background = color;
+      }
+
+      /* ---------- Leading assets: BTC, ETH, SOL ---------- */
+      var leadWrap = document.getElementById("crypto-cards");
+      ["BTC", "ETH", "SOL"].forEach(function (sym) {
+        var a = bySymbol(sym);
+        if (a) addCard(leadWrap, a, sym + " sample 24h trend, " + fmtChange(a.change24h));
+      });
+
+      /* ---------- Stats: dominance, volume, fear & greed ---------- */
+      var totalCap = crypto.reduce(function (s, a) { return s + capBillions(a.marketCap); }, 0);
+      var dom = totalCap > 0 ? (capBillions(btc.marketCap) / totalCap) * 100 : 0;
+      document.getElementById("stat-dominance").textContent = dom.toFixed(1) + "%";
+      var totalVol = crypto.reduce(function (s, a) { return s + capBillions(a.volume); }, 0);
+      document.getElementById("stat-volume").textContent = totalVol.toFixed(1) + "B";
+
+      /* ---------- Gainers / losers ---------- */
+      var byChangeDesc = crypto.slice().sort(function (a, b) { return b.change24h - a.change24h; });
+      var gainWrap = document.getElementById("gainers");
+      byChangeDesc.slice(0, 3).forEach(function (a) {
+        addCard(gainWrap, a, a.symbol + " sample gain, " + fmtChange(a.change24h));
+      });
+      var loseWrap = document.getElementById("losers");
+      byChangeDesc.slice(-3).reverse().forEach(function (a) {
+        addCard(loseWrap, a, a.symbol + " sample change, " + fmtChange(a.change24h));
+      });
+
+      /* ---------- Trending by sample volume ---------- */
+      var trendList = document.getElementById("trending-list");
+      crypto.slice().sort(function (a, b) { return capBillions(b.volume) - capBillions(a.volume); })
+        .forEach(function (a, i) {
+          var up = a.change24h >= 0;
+          var li = document.createElement("li");
+          li.innerHTML =
+            '<span class="trend-rank" aria-hidden="true">' + (i + 1) + "</span>" +
+            '<div class="trend-main"><div class="cell-main">' + esc(a.symbol) + "</div>" +
+              '<div class="text-muted" style="font-size:.85rem">' + esc(a.name) + "</div></div>" +
+            '<div class="text-right"><div class="num">' + fmtPrice(a.price) + "</div>" +
+              '<div class="num ' + (up ? "pos" : "neg") + '">' + fmtChange(a.change24h) + "</div></div>";
+          trendList.appendChild(li);
+        });
+
+      /* ---------- News (crypto category) ---------- */
+      var newsWrap = document.getElementById("crypto-news");
+      D.news.filter(function (n) { return n.category === "crypto"; }).forEach(function (n) {
+        var card = document.createElement("article");
+        card.className = "card card--lift news-card";
+        card.setAttribute("role", "listitem");
+        var img = NEWS_IMAGES[n.category] || "/assets/img/movement.jpg";
+        card.innerHTML =
+          '<div class="news-card-img"><img src="' + img + '" alt="" loading="lazy"></div>' +
+          '<div class="news-card-body">' +
+            '<span class="badge badge-cat">' + esc(n.category) + "</span>" +
+            '<h3 class="news-card-title"><a href="/news/' + esc(n.slug) + '/">' + esc(n.title) + "</a></h3>" +
+            '<p class="news-card-excerpt">' + esc(n.excerpt) + "</p>" +
+            '<div class="news-card-meta"><span>' + fmtDate(n.date) + "</span><span>" + esc(n.source) + "</span></div>" +
+          "</div>";
+        newsWrap.appendChild(card);
+      });
+
+      /* ---------- Analysis (market + technical) ---------- */
+      var anWrap = document.getElementById("crypto-analysis");
+      D.analysis.filter(function (a) {
+        return a.category === "market" || a.category === "technical";
+      }).forEach(function (a, i) {
+        var card = document.createElement("article");
+        card.className = "card card--lift article-card";
+        card.setAttribute("role", "listitem");
+        var img = i === 0 ? "/assets/img/movement.jpg" : "/assets/img/website-structure.jpg";
+        card.innerHTML =
+          '<div class="article-card-img"><img src="' + img + '" alt="" loading="lazy"></div>' +
+          '<div class="article-card-body">' +
+            '<span class="badge badge-cat">' + esc(a.category) + " analysis</span>" +
+            '<h3><a href="/analysis/#' + esc(a.slug) + '">' + esc(a.title) + "</a></h3>" +
+            "<p>" + esc(a.summary) + "</p>" +
+            '<div class="news-card-meta"><span>' + fmtDate(a.date) + "</span></div>" +
+          "</div>";
+        anWrap.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>

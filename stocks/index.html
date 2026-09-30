@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stocks — ASUGALAKX</title>
+  <meta name="description" content="Stocks snapshot: sample index levels, top movers, sector performance and a personal watchlist — clearly labeled demonstration data, not live quotes.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Stocks — ASUGALAKX">
+  <meta property="og:description" content="Sample equity snapshot — index levels, top movers, sector performance and watchlist. Demonstration data, not live quotes.">
+  <meta property="og:url" content="https://asugalakx.com/stocks/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stocks — ASUGALAKX">
+  <meta name="twitter:description" content="Sample equity snapshot — index levels, top movers, sector performance and watchlist. Demonstration data, not live quotes.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .sector-row{display:grid;grid-template-columns:170px 1fr 80px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border-soft)}
+    .sector-row:last-child{border-bottom:0}
+    .sector-name{font-weight:600}
+    .sector-track{height:8px;background:var(--bg-2);border-radius:var(--radius-full);overflow:hidden}
+    .sector-fill{height:100%;border-radius:var(--radius-full)}
+    .sector-val{text-align:right;font-variant-numeric:tabular-nums}
+    .watch-star{background:none;border:0;color:var(--text-3);font-size:1.05rem;cursor:pointer;padding:2px 6px;line-height:1}
+    .watch-star[aria-pressed="true"]{color:var(--amber)}
+  </style>
+  <script>window.ASGX_PAGE = { title: "Stocks", active: "markets" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <nav class="container" aria-label="Breadcrumb" style="padding-top:24px">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/markets/">Markets</a></li>
+        <li aria-current="page">Stocks</li>
+      </ol>
+    </nav>
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Market Data</span>
+        <h1>STOCKS</h1>
+        <p class="lead">Sample equity-market snapshot: benchmark levels, movers and sectors.</p>
+        <p class="mt-4"><span class="badge badge-demo">DEMO DATA</span></p>
+        <p class="text-muted mt-4" style="max-width:640px">Sample data for demonstration &mdash; not real-time quotes. All figures are fictional and do not constitute financial advice.</p>
+      </div>
+    </section>
+
+    <!-- INDEX CARDS -->
+    <section class="section section--flush-top" aria-labelledby="indices-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Benchmarks</span>
+            <h2 class="section-title" id="indices-title">Indices &amp; Large Caps</h2>
+            <p class="section-sub">Sample levels from the demo equity dataset.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="grid-cards" id="stock-cards" role="list" aria-label="Stock indices and large-cap equities"></div>
+        <p class="table-note mt-6">Sample data for demonstration &mdash; not real-time quotes.</p>
+      </div>
+    </section>
+
+    <!-- TOP MOVERS -->
+    <section class="section section--tight" aria-labelledby="movers-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Movers</span>
+            <h2 class="section-title" id="movers-title">Top Movers</h2>
+            <p class="section-sub">Equity assets in the sample set, ranked by 24-hour change.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="movers-table">
+            <caption class="visually-hidden">Top moving stock assets in the sample set</caption>
+            <thead>
+              <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Name</th>
+                <th scope="col" class="num" style="text-align:right">Price</th>
+                <th scope="col" class="num" style="text-align:right">24H</th>
+                <th scope="col" class="num" style="text-align:right">Volume</th>
+                <th scope="col" class="num" style="text-align:right">Mkt Cap</th>
+                <th scope="col">Trend</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="table-note">Sample data for demonstration &mdash; not real-time quotes.</p>
+      </div>
+    </section>
+
+    <!-- SECTOR PERFORMANCE -->
+    <section class="section section--tight" aria-labelledby="sectors-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Breadth</span>
+            <h2 class="section-title" id="sectors-title">Sector Performance</h2>
+            <p class="section-sub">Illustrative sector figures &mdash; layout demonstration only.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="card" role="list" aria-label="Illustrative sector performance">
+          <div id="sector-bars"></div>
+        </div>
+        <p class="table-note mt-4">Sector figures are illustrative samples for demonstration purposes only and do not reflect real sector indices.</p>
+      </div>
+    </section>
+
+    <!-- WATCHLIST -->
+    <section class="section section--tight" aria-labelledby="watchlist-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Personal</span>
+            <h2 class="section-title" id="watchlist-title">Your Watchlist</h2>
+            <p class="section-sub">Symbols you starred on the Markets page, stored in this browser.</p>
+          </div>
+          <a class="btn btn-outline btn-sm" href="/markets/">Browse markets &rarr;</a>
+        </div>
+        <div id="watchlist-empty" class="callout" hidden>
+          Your watchlist is empty. Star any symbol on the <a href="/markets/">Markets</a> page and it will appear here. Your watchlist is stored locally in this browser only.
+        </div>
+        <div class="grid-cards" id="watchlist-cards" role="list" aria-label="Watched assets"></div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="section section--tight" aria-labelledby="stocks-news-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">News</span>
+            <h2 class="section-title" id="stocks-news-title">Stocks News</h2>
+            <p class="section-sub">Equity coverage from the ASUGALAKX newsroom.</p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/news/">All news &rarr;</a>
+        </div>
+        <div class="grid-cards" id="stocks-news" role="list" aria-label="Stocks news articles"></div>
+      </div>
+    </section>
+
+    <!-- ANALYSIS -->
+    <section class="section section--tight" aria-labelledby="stocks-analysis-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Analysis</span>
+            <h2 class="section-title" id="stocks-analysis-title">Analysis</h2>
+            <p class="section-sub">Technical and macro context relevant to equity markets.</p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/analysis/">All analysis &rarr;</a>
+        </div>
+        <div class="grid-cards grid-cards--lg" id="stocks-analysis" role="list" aria-label="Stocks analysis articles"></div>
+        <p class="table-note mt-6">This content is for informational and educational purposes only and does not constitute financial advice.</p>
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+  <script>
+    document.addEventListener("asgx:ready", function () {
+      "use strict";
+      var D = window.ASGX_DATA;
+      var C = window.ASGX_CHARTS;
+      var DEMO = D.meta.demoLabel;
+      var NEWS_IMAGES = {
+        crypto: "/assets/img/asgx-coin.jpg",
+        web3: "/assets/img/tokenomics.jpg",
+        macro: "/assets/img/movement.jpg",
+        stocks: "/assets/img/website-structure.jpg",
+        forex: "/assets/img/ecosystem-overview.jpg"
+      };
+
+      function esc(s) {
+        return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      }
+      function fmtPrice(v) {
+        var dec = Math.abs(v) < 10 ? 4 : 2;
+        return Number(v).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+      }
+      function fmtChange(v) {
+        return (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+      }
+      function fmtDate(iso) {
+        var d = new Date(iso + "T12:00:00");
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+      }
+      function getWatch() {
+        try { return JSON.parse(localStorage.getItem("asgx-watchlist")) || []; }
+        catch (e) { return []; }
+      }
+      function dataCard(a, sparkLabel) {
+        var up = a.change24h >= 0;
+        var card = document.createElement("article");
+        card.className = "card card--lift data-card";
+        card.setAttribute("role", "listitem");
+        card.innerHTML =
+          '<div class="data-card-top"><div>' +
+            '<div class="data-card-symbol">' + esc(a.symbol) + "</div>" +
+            '<div class="data-card-name">' + esc(a.name) + "</div>" +
+          '</div><span class="badge badge-demo">' + esc(DEMO) + "</span></div>" +
+          '<div class="data-card-price">' + fmtPrice(a.price) + "</div>" +
+          '<div class="data-card-change ' + (up ? "up" : "down") + '">' + fmtChange(a.change24h) +
+            ' <span class="text-muted" style="font-weight:400">24h</span></div>' +
+          '<div class="data-card-spark" aria-hidden="true"></div>' +
+          '<div class="data-card-meta">' +
+            "<span>Volume<b>" + esc(a.volume) + "</b></span>" +
+            '<span style="text-align:right">Mkt Cap<b>' + esc(a.marketCap) + "</b></span>" +
+          "</div>";
+        C.sparkline(card.querySelector(".data-card-spark"), a.spark, { ariaLabel: sparkLabel });
+        return card;
+      }
+
+      var stocks = D.assets.filter(function (a) { return a.category === "stocks"; });
+
+      /* ---------- Index cards ---------- */
+      var cardWrap = document.getElementById("stock-cards");
+      stocks.forEach(function (a) {
+        cardWrap.appendChild(dataCard(a, a.symbol + " sample 24h trend, " + fmtChange(a.change24h)));
+      });
+
+      /* ---------- Top movers table ---------- */
+      var tbody = document.querySelector("#movers-table tbody");
+      stocks.slice().sort(function (a, b) { return b.change24h - a.change24h; }).forEach(function (a) {
+        var up = a.change24h >= 0;
+        var tr = document.createElement("tr");
+        tr.innerHTML =
+          '<td><span class="cell-main">' + esc(a.symbol) + "</span></td>" +
+          "<td>" + esc(a.name) + "</td>" +
+          '<td class="num">' + fmtPrice(a.price) + "</td>" +
+          '<td class="num ' + (up ? "pos" : "neg") + '">' + fmtChange(a.change24h) + "</td>" +
+          '<td class="num">' + esc(a.volume) + "</td>" +
+          '<td class="num">' + esc(a.marketCap) + "</td>" +
+          '<td><span class="badge ' + (up ? "badge-up" : "badge-down") + '">' +
+            (up ? "\u25B2 Up" : "\u25BC Down") + "</span></td>";
+        tbody.appendChild(tr);
+      });
+
+      /* ---------- Sector performance (illustrative sample) ---------- */
+      var sectors = [
+        { name: "Technology", change: 1.24 },
+        { name: "Financials", change: 0.68 },
+        { name: "Healthcare", change: 0.31 },
+        { name: "Consumer Staples", change: 0.18 },
+        { name: "Industrials", change: -0.12 },
+        { name: "Energy", change: -0.44 }
+      ];
+      var maxAbs = Math.max.apply(null, sectors.map(function (s) { return Math.abs(s.change); }));
+      var sectorWrap = document.getElementById("sector-bars");
+      sectors.forEach(function (s) {
+        var up = s.change >= 0;
+        var row = document.createElement("div");
+        row.className = "sector-row";
+        row.setAttribute("role", "listitem");
+        row.innerHTML =
+          '<span class="sector-name">' + esc(s.name) + ' <span class="badge badge-cat">sample</span></span>' +
+          '<div class="sector-track" role="img" aria-label="' + esc(s.name) + " illustrative sample change " + fmtChange(s.change) + '">' +
+            '<div class="sector-fill" style="width:' + (Math.abs(s.change) / maxAbs * 100).toFixed(1) + "%;background:" +
+              (up ? "var(--green)" : "var(--red)") + '"></div></div>' +
+          '<span class="sector-val ' + (up ? "pos" : "neg") + '">' + fmtChange(s.change) + "</span>";
+        sectorWrap.appendChild(row);
+      });
+
+      /* ---------- Watchlist (same localStorage as Markets page) ---------- */
+      var watch = getWatch();
+      var wlCards = document.getElementById("watchlist-cards");
+      var wlEmpty = document.getElementById("watchlist-empty");
+      if (!watch.length) {
+        wlEmpty.removeAttribute("hidden");
+      } else {
+        var bySym = {};
+        D.assets.forEach(function (a) { bySym[a.symbol] = a; });
+        watch.forEach(function (sym) {
+          var a = bySym[sym];
+          if (!a) return;
+          var card = dataCard(a, sym + " sample 24h trend, " + fmtChange(a.change24h));
+          var top = card.querySelector(".data-card-top");
+          var cat = document.createElement("span");
+          cat.className = "badge badge-cat";
+          cat.textContent = a.category;
+          top.appendChild(cat);
+          wlCards.appendChild(card);
+        });
+      }
+
+      /* ---------- News (stocks category) ---------- */
+      var newsWrap = document.getElementById("stocks-news");
+      D.news.filter(function (n) { return n.category === "stocks"; }).forEach(function (n) {
+        var card = document.createElement("article");
+        card.className = "card card--lift news-card";
+        card.setAttribute("role", "listitem");
+        var img = NEWS_IMAGES[n.category] || "/assets/img/movement.jpg";
+        card.innerHTML =
+          '<div class="news-card-img"><img src="' + img + '" alt="" loading="lazy"></div>' +
+          '<div class="news-card-body">' +
+            '<span class="badge badge-cat">' + esc(n.category) + "</span>" +
+            '<h3 class="news-card-title"><a href="/news/' + esc(n.slug) + '/">' + esc(n.title) + "</a></h3>" +
+            '<p class="news-card-excerpt">' + esc(n.excerpt) + "</p>" +
+            '<div class="news-card-meta"><span>' + fmtDate(n.date) + "</span><span>" + esc(n.source) + "</span></div>" +
+          "</div>";
+        newsWrap.appendChild(card);
+      });
+
+      /* ---------- Analysis (technical + macro) ---------- */
+      var anWrap = document.getElementById("stocks-analysis");
+      D.analysis.filter(function (a) {
+        return a.category === "technical" || a.category === "macro";
+      }).forEach(function (a, i) {
+        var card = document.createElement("article");
+        card.className = "card card--lift article-card";
+        card.setAttribute("role", "listitem");
+        var img = i === 0 ? "/assets/img/website-structure.jpg" : "/assets/img/movement.jpg";
+        card.innerHTML =
+          '<div class="article-card-img"><img src="' + img + '" alt="" loading="lazy"></div>' +
+          '<div class="article-card-body">' +
+            '<span class="badge badge-cat">' + esc(a.category) + " analysis</span>" +
+            '<h3><a href="/analysis/#' + esc(a.slug) + '">' + esc(a.title) + "</a></h3>" +
+            "<p>" + esc(a.summary) + "</p>" +
+            '<div class="news-card-meta"><span>' + fmtDate(a.date) + "</span></div>" +
+          "</div>";
+        anWrap.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>
