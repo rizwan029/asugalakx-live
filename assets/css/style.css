@@ -582,6 +582,28 @@ li { margin-bottom: var(--space-2); }
 @keyframes coin-spin { to { transform: rotate(360deg); } }
 @keyframes coin-spin-rev { to { transform: rotate(-360deg); } }
 
+/* Original AI-generated brand visuals (wolf-*.jpg) */
+.hero-wolf {
+  position: relative;
+  width: min(400px, 78vw);
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 70px var(--glow);
+}
+.hero-wolf img { width: 100%; height: auto; display: block; }
+
+.page-hero-visual {
+  margin: var(--space-6) auto 0;
+  max-width: 760px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 50px rgba(123,45,255,.15);
+}
+.page-hero-visual img { width: 100%; height: auto; display: block; }
+
 .hero-glow {
   position: absolute;
   width: 420px; height: 420px;

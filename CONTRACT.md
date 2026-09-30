@@ -50,12 +50,13 @@ Layout:
 - `.grid-12` — 12-col desktop grid; children `.col-12/.col-8/.col-6/.col-4/.col-3` (collapse to full width under 900px).
 - `.grid-cards` — auto-fill responsive card grid; modifiers `.grid-cards--sm` (220px min), `.grid-cards--lg` (360px min).
 - `.page-hero` — inner-page header: `<section class="page-hero"><div class="container"><span class="eyebrow">…</span><h1>…</h1><p class="lead">…</p></div></section>`.
+- `.page-hero-visual` — optional AI-generated brand visual inside `.page-hero` (after the lead): `<figure class="page-hero-visual"><img src="/assets/img/wolf-*.jpg" …></figure>`. Max 760px, rounded, bordered, subtle purple glow.
 
 Buttons: `.btn` + `.btn-primary` / `.btn-outline` / `.btn-ghost`; sizes `.btn-sm` / `.btn-lg`; `.btn-block`.
 
 Badges (compliance-critical): `.badge` base; `.badge-demo` (amber, "DEMO DATA"), `.badge-proposed` (violet, "PROPOSED"), `.badge-dev` (dashed, "IN DEVELOPMENT"), `.badge-up` / `.badge-down` (green/red), `.badge-cat` (category tag).
 
-Hero: `.hero > .container > .hero-grid` with `.hero-copy` (`.hero-eyebrow`, `.hero-title` with optional `.accent` span, `.hero-sub`, `.hero-ctas`, `.hero-note`) and `.hero-visual` (`.hero-glow`, `.particle` ×N, `.coin-frame > img`).
+Hero: `.hero > .container > .hero-grid` with `.hero-copy` (`.hero-eyebrow`, `.hero-title` with optional `.accent` span, `.hero-sub`, `.hero-ctas`, `.hero-note`) and `.hero-visual` (`.hero-glow`, `.particle` ×N, `.hero-wolf > img` for the AI-generated wolf hero visual; `.coin-frame > img` kept for circular coin displays elsewhere).
 
 Cards:
 - `.card` base (add `.card--lift` for hover lift). `.card-title`, `.card-text`.
@@ -161,6 +162,20 @@ Hand-rolled SVG, zero dependencies. All helpers respect
 - ALL paths are root-relative: `/assets/css/style.css`, `/assets/js/data.js`, `/assets/js/charts.js`, `/assets/js/components.js`, `/assets/img/asgx-coin.jpg`, nav hrefs like `/markets/`, `/news/<slug>/`, `/nft/<id>/`.
 - Favicon: `/assets/img/asgx-coin.jpg`.
 - No `../` relative links anywhere.
+
+### Brand visual assets (`/assets/img/`)
+
+| File | Use |
+|---|---|
+| `asgx-coin.jpg` | ASGX token coin logo — token pages, favicon |
+| `tokenomics.jpg` | Tokenomics infographic reference |
+| `ecosystem-overview.jpg` | Ecosystem overview artwork |
+| `website-structure.jpg` | Website structure reference |
+| `movement.jpg` | Community/movement artwork |
+| `wolf-hero.jpg` | AI-generated geometric wolf — homepage hero (`.hero-wolf`) |
+| `wolf-neural.jpg` | AI-generated wolf + neural network — AI Agents page hero (`.page-hero-visual`) |
+| `wolf-mask.jpg` | AI-generated ornate wolf mask — NFT page hero (`.page-hero-visual`) |
+| `wolf-web3.jpg` | AI-generated wolf over blockchain city — Web3 page hero (`.page-hero-visual`) |
 
 ---
 
