@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forex — ASUGALAKX</title>
+  <meta name="description" content="Forex snapshot: sample EUR/USD, GBP/USD and USD/JPY charts, a demo economic-event calendar, macro context and related news. Demonstration data only.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Forex — ASUGALAKX">
+  <meta property="og:description" content="Sample currency snapshot — pair charts, demo event calendar, macro context and related news. Demonstration data.">
+  <meta property="og:url" content="https://asugalakx.com/forex/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Forex — ASUGALAKX">
+  <meta name="twitter:description" content="Sample currency snapshot — pair charts, demo event calendar, macro context and related news. Demonstration data.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .pair-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:4px}
+    .event-list{list-style:none;margin:0;padding:0}
+    .event-list li{display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--border-soft)}
+    .event-list li:last-child{border-bottom:0}
+    .event-date{font-family:var(--font-head);text-align:center;background:var(--bg-2);border:1px solid var(--border-soft);border-radius:var(--radius);padding:8px 4px}
+    .event-date b{display:block;font-size:1.1rem}
+    .event-date span{font-size:.72rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em}
+    .event-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+    @media (max-width:640px){
+      .event-list li{grid-template-columns:72px 1fr}
+      .event-tags{grid-column:1 / -1;justify-content:flex-start}
+    }
+  </style>
+  <script>window.ASGX_PAGE = { title: "Forex", active: "markets" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <nav class="container" aria-label="Breadcrumb" style="padding-top:24px">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/markets/">Markets</a></li>
+        <li aria-current="page">Forex</li>
+      </ol>
+    </nav>
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Market Data</span>
+        <h1>FOREX</h1>
+        <p class="lead">Sample currency-pair snapshot with session charts and macro context.</p>
+        <p class="mt-4"><span class="badge badge-demo">DEMO DATA</span></p>
+        <p class="text-muted mt-4" style="max-width:640px">All FX rates shown are fictional sample data for demonstration purposes only. They are not live quotes and do not constitute financial advice.</p>
+      </div>
+    </section>
+
+    <!-- PAIR CARDS -->
+    <section class="section section--flush-top" aria-labelledby="pairs-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Pairs</span>
+            <h2 class="section-title" id="pairs-title">Currency Pairs</h2>
+            <p class="section-sub">Sample session paths for major pairs in the demo dataset.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="grid-cards grid-cards--lg" id="pair-cards" role="list" aria-label="Currency pair charts"></div>
+        <p class="table-note mt-6">All market figures shown are fictional sample data for demonstration purposes only.</p>
+      </div>
+    </section>
+
+    <!-- ECONOMIC EVENTS -->
+    <section class="section section--tight" aria-labelledby="events-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Calendar</span>
+            <h2 class="section-title" id="events-title">Economic Events</h2>
+            <p class="section-sub">Illustrative calendar entries &mdash; layout demonstration only.</p>
+          </div>
+          <span class="badge badge-demo">DEMO DATA</span>
+        </div>
+        <div class="callout">
+          <strong>Sample calendar entries.</strong> The events below are illustrative placeholders to demonstrate the calendar layout. They are not sourced from any economic calendar and should not be treated as real scheduled releases.
+        </div>
+        <div class="card mt-6">
+          <ul class="event-list" id="event-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MACRO CONTEXT -->
+    <section class="section section--tight" aria-labelledby="macro-context-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Context</span>
+            <h2 class="section-title" id="macro-context-title">Macro Context</h2>
+            <p class="section-sub">How analysts typically frame currency moves &mdash; educational notes.</p>
+          </div>
+        </div>
+        <div class="prose card" style="padding:32px">
+          <p>Currency markets are most often read through the lens of <strong>interest-rate differentials</strong> and the resulting carry incentives: when one central bank is expected to hold rates higher for longer than another, its currency tends to find structural support. Growth surprises and inflation prints then act as the day-to-day catalysts that reprice those expectations.</p>
+          <p>Possible scenarios for the current regime include a <em>steady-differentials</em> path, in which rate expectations stay anchored and pairs trade in ranges, and a <em>repricing</em> path, in which a surprise inflation or labor print forces markets to rethink the policy path &mdash; historically the trigger for the sharpest FX moves.</p>
+          <p>Risk factors worth monitoring: unscheduled central-bank communication, geopolitical headlines that drive safe-haven flows into the dollar and yen, and thin liquidity around major data releases, which can exaggerate moves in either direction. These notes describe general market mechanics, not a forecast for any specific pair.</p>
+          <p class="text-muted"><small>This content is for informational and educational purposes only and does not constitute financial advice.</small></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED NEWS -->
+    <section class="section section--tight" aria-labelledby="forex-news-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">News</span>
+            <h2 class="section-title" id="forex-news-title">Related News</h2>
+            <p class="section-sub">FX and macro coverage from the ASUGALAKX newsroom.</p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/news/">All news &rarr;</a>
+        </div>
+        <div class="grid-cards" id="forex-news" role="list" aria-label="Forex and macro news articles"></div>
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+  <script>
+    document.addEventListener("asgx:ready", function () {
+      "use strict";
+      var D = window.ASGX_DATA;
+      var C = window.ASGX_CHARTS;
+      var DEMO = D.meta.demoLabel;
+      var NEWS_IMAGES = {
+        crypto: "/assets/img/asgx-coin.jpg",
+        web3: "/assets/img/tokenomics.jpg",
+        macro: "/assets/img/movement.jpg",
+        stocks: "/assets/img/website-structure.jpg",
+        forex: "/assets/img/ecosystem-overview.jpg"
+      };
+
+      function esc(s) {
+        return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      }
+      function fmtPrice(v) {
+        return Number(v).toLocaleString("en-US", { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+      }
+      function fmtChange(v) {
+        return (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+      }
+      function fmtDate(iso) {
+        var d = new Date(iso + "T12:00:00");
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+      }
+
+      var forex = D.assets.filter(function (a) { return a.category === "forex"; });
+
+      /* ---------- Pair cards, each with a line chart ---------- */
+      var wrap = document.getElementById("pair-cards");
+      forex.forEach(function (a) {
+        var up = a.change24h >= 0;
+        var color = up ? "#22C55E" : "#EF4444";
+        var card = document.createElement("article");
+        card.className = "card card--lift chart-card";
+        card.setAttribute("role", "listitem");
+        card.innerHTML =
+          '<div class="pair-head"><div>' +
+            '<div class="data-card-symbol">' + esc(a.symbol) + "</div>" +
+            '<div class="data-card-name">' + esc(a.name) + "</div>" +
+          "</div>" + '<span class="badge badge-demo">' + esc(DEMO) + "</span></div>" +
+          '<div class="chart-title-row" style="margin-top:8px">' +
+            '<span class="data-card-price" style="font-size:1.5rem">' + fmtPrice(a.price) + "</span>" +
+            '<span class="data-card-change ' + (up ? "up" : "down") + '">' + fmtChange(a.change24h) +
+              ' <span class="text-muted" style="font-weight:400">24h</span></span>' +
+          "</div>" +
+          '<div class="chart-holder"></div>' +
+          '<div class="chart-legend"><span class="legend-item">' +
+            '<span class="legend-swatch" style="background:' + color + '"></span>' +
+            esc(a.symbol) + " sample session</span></div>";
+        wrap.appendChild(card);
+        var labels = a.spark.map(function (_, i) {
+          return i === a.spark.length - 1 ? "now" : "\u2212" + (a.spark.length - 1 - i) + "h";
+        });
+        C.line(card.querySelector(".chart-holder"),
+          { label: a.symbol + " (sample)", color: color, data: a.spark },
+          { labels: labels, ariaLabel: "Line chart of a fictional " + a.symbol + " sample rate path over the trailing session window." });
+      });
+
+      /* ---------- Economic events (clearly labeled sample entries) ---------- */
+      var events = [
+        { d: "2026-09-30", day: "30", mon: "Sep", name: "Eurozone CPI Flash (Sep)", detail: "Year-on-year headline inflation estimate.", ccy: "EUR", impact: "High" },
+        { d: "2026-10-01", day: "1", mon: "Oct", name: "US ISM Manufacturing PMI", detail: "Manufacturing sentiment survey for September.", ccy: "USD", impact: "High" },
+        { d: "2026-10-02", day: "2", mon: "Oct", name: "US Non-Farm Payrolls", detail: "Monthly employment and wage growth report.", ccy: "USD", impact: "High" },
+        { d: "2026-10-08", day: "8", mon: "Oct", name: "FOMC Minutes", detail: "Minutes from the latest policy meeting.", ccy: "USD", impact: "High" },
+        { d: "2026-10-29", day: "29", mon: "Oct", name: "ECB Policy Decision", detail: "Rate decision and press conference.", ccy: "EUR", impact: "High" },
+        { d: "2026-10-30", day: "30", mon: "Oct", name: "BoJ Policy Decision", detail: "Rate decision and outlook report.", ccy: "JPY", impact: "High" }
+      ];
+      var evList = document.getElementById("event-list");
+      events.forEach(function (e) {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<div class="event-date" aria-hidden="true"><b>' + esc(e.day) + "</b><span>" + esc(e.mon) + "</span></div>" +
+          "<div><div class=\"cell-main\">" + esc(e.name) + "</div>" +
+            '<div class="text-muted" style="font-size:.85rem">' + esc(e.detail) + "</div></div>" +
+          '<div class="event-tags">' +
+            '<span class="badge badge-cat">' + esc(e.ccy) + "</span>" +
+            '<span class="badge badge-cat">' + esc(e.impact) + " impact</span>" +
+            '<span class="badge badge-demo">SAMPLE ENTRY</span>' +
+          "</div>";
+        evList.appendChild(li);
+      });
+
+      /* ---------- Related news (forex + macro) ---------- */
+      var newsWrap = document.getElementById("forex-news");
+      D.news.filter(function (n) {
+        return n.category === "forex" || n.category === "macro";
+      }).forEach(function (n) {
+        var card = document.createElement("article");
+        card.className = "card card--lift news-card";
+        card.setAttribute("role", "listitem");
+        var img = NEWS_IMAGES[n.category] || "/assets/img/movement.jpg";
+        card.innerHTML =
+          '<div class="news-card-img"><img src="' + img + '" alt="" loading="lazy"></div>' +
+          '<div class="news-card-body">' +
+            '<span class="badge badge-cat">' + esc(n.category) + "</span>" +
+            '<h3 class="news-card-title"><a href="/news/' + esc(n.slug) + '/">' + esc(n.title) + "</a></h3>" +
+            '<p class="news-card-excerpt">' + esc(n.excerpt) + "</p>" +
+            '<div class="news-card-meta"><span>' + fmtDate(n.date) + "</span><span>" + esc(n.source) + "</span></div>" +
+          "</div>";
+        newsWrap.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology — ASUGALAKX</title>
+  <meta name="description" content="ASUGALAKX technology: a modern, scalable architecture for market data, AI agents, and Web3 — plus the security processes behind every release.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Technology — ASUGALAKX">
+  <meta property="og:description" content="A modern, scalable stack designed for market data, AI, and Web3.">
+  <meta property="og:url" content="https://asugalakx.com/technology/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Technology — ASUGALAKX">
+  <meta name="twitter:description" content="A modern, scalable stack designed for market data, AI, and Web3.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>window.ASGX_PAGE = { title: "Technology", active: "technology" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+
+  <main id="asgx-main">
+    <!-- ================= PAGE HERO ================= -->
+    <section class="page-hero">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><span aria-current="page">Technology</span></li>
+          </ol>
+        </nav>
+        <span class="eyebrow">Technology &amp; architecture</span>
+        <h1>Technology</h1>
+        <p class="lead">A modern, scalable stack designed for market data, AI, and Web3.</p>
+      </div>
+    </section>
+
+    <!-- ================= ARCHITECTURE ================= -->
+    <section class="section" aria-labelledby="arch-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">System design</span>
+            <h2 class="section-title" id="arch-title">Architecture Overview</h2>
+            <p class="section-sub">Seven layers, from the browser to the blockchain. A planned design — shown as documentation, not a live system diagram.</p>
+          </div>
+        </div>
+
+        <div class="card mb-8" style="border-left:3px solid var(--brand)">
+          <h3 class="card-title">Layer 1 — Client</h3>
+          <div class="stat-row">
+            <div class="stat"><div class="stat-value" style="font-size:1.2rem">Frontend</div><div class="stat-label">Next.js / React, Tailwind CSS</div></div>
+          </div>
+          <p class="card-text">The presentation layer: pages, dashboards, charts, and the Academy experience. Static-first, accessible, and fast on low-bandwidth connections.</p>
+        </div>
+
+        <div class="pipeline" aria-label="Service layers">
+          <div class="pipeline-step">
+            <span class="step-num">Layer 2</span>
+            <h4>Services</h4>
+            <p>Backend — Node.js with a dedicated API layer serving data, auth, and community features.</p>
+          </div>
+          <div class="pipeline-step">
+            <span class="step-num">Layer 3</span>
+            <h4>Storage</h4>
+            <p>Database — PostgreSQL for relational data; Cache — Redis for low-latency reads and rate limiting.</p>
+          </div>
+          <div class="pipeline-step">
+            <span class="step-num">Layer 4</span>
+            <h4>Feeds</h4>
+            <p>Data — Market APIs, News APIs, and Economic Calendar APIs, normalized into one internal feed.</p>
+          </div>
+        </div>
+
+        <div class="card mb-8">
+          <h3 class="card-title">Layer 5 — Intelligence</h3>
+          <p class="card-text">AI — seven specialized agents for signal discovery, verification, market structure, macro context, narratives, research, and community intelligence. <span class="badge badge-dev">In development</span></p>
+          <a class="btn btn-outline btn-sm" href="/ai-agents/">Meet the Agents</a>
+        </div>
+
+        <div class="pipeline" aria-label="Platform layers">
+          <div class="pipeline-step">
+            <span class="step-num">Layer 6</span>
+            <h4>Web3</h4>
+            <p>Blockchain — Solana for the ASGX utility token and the NFT collection. <span class="badge badge-proposed">Proposed</span></p>
+          </div>
+          <div class="pipeline-step">
+            <span class="step-num">Layer 7</span>
+            <h4>Platform</h4>
+            <p>Infrastructure — cloud hosting, Docker containers, monitoring, and security tooling across environments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECURITY ================= -->
+    <section class="section section--flush-top" aria-labelledby="security-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Security</span>
+            <h2 class="section-title" id="security-title">How We Approach Security</h2>
+            <p class="section-sub">A process, not a promise. These are the controls and workflows built into every release.</p>
+          </div>
+        </div>
+        <div class="grid-cards">
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9672;</div>
+            <h3>Data Validation</h3>
+            <p>Incoming market data is validated, normalized, and checked for anomalies before it reaches any display or model.</p>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9673;</div>
+            <h3>API Security</h3>
+            <p>Authenticated endpoints, rate limiting, and scoped keys. No secrets in client-side code, ever.</p>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9674;</div>
+            <h3>Wallet Security</h3>
+            <p>Non-custodial by design. Wallet connections are read-scoped; the platform never holds or moves user funds.</p>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9675;</div>
+            <h3>Access Control</h3>
+            <p>Least-privilege access across services, environments, and team roles, reviewed on a regular cadence.</p>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9676;</div>
+            <h3>Monitoring</h3>
+            <p>Logging, alerting, and incident workflows for services and data pipelines, from staging through production.</p>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9677;</div>
+            <h3>Contract Review Process</h3>
+            <p>Any on-chain component follows a review pipeline: internal review, independent security review, then testnet — mainnet only after review milestones are met. <span class="badge badge-proposed">Proposed</span></p>
+          </article>
+        </div>
+
+        <h3 class="mt-8" style="font-size:1.2rem">Release path: testnet &rarr; review &rarr; mainnet</h3>
+        <div class="pipeline" aria-label="Release path from testnet to mainnet">
+          <div class="pipeline-step">
+            <span class="step-num">Step 1</span>
+            <h4>Testnet</h4>
+            <p>New components deploy to test environments first, with public behavior documented for review.</p>
+          </div>
+          <div class="pipeline-step">
+            <span class="step-num">Step 2</span>
+            <h4>Review</h4>
+            <p>Independent security reviews and internal audits of findings before any mainnet consideration.</p>
+          </div>
+          <div class="pipeline-step">
+            <span class="step-num">Step 3</span>
+            <h4>Mainnet</h4>
+            <p>Graduated rollout with monitoring, rollback plans, and clear status communication.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA BAND ================= -->
+    <section class="section section--flush-top" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-band">
+          <h2 id="cta-title">Read the full design document.</h2>
+          <p>The whitepaper covers the vision, tokenomics, and roadmap in detail — including the risk disclosure.</p>
+          <a class="btn btn-primary btn-lg" href="/whitepaper/">Read the Whitepaper</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="asgx-footer"></div>
+
+  <script>
+    document.addEventListener("asgx:ready", function () {
+      /* Static architecture page — no dynamic rendering required. */
+    });
+  </script>
+</body>
+</html>

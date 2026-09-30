@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsroom — ASUGALAKX</title>
+  <meta name="description" content="The ASUGALAKX Newsroom: daily market coverage across crypto, stocks, forex, Web3 and macro — curated with context, written without hype or noise.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Newsroom — ASUGALAKX">
+  <meta property="og:description" content="Daily market coverage across crypto, stocks, forex, Web3 and macro — curated with context, written without hype.">
+  <meta property="og:url" content="https://asugalakx.com/news/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Newsroom — ASUGALAKX">
+  <meta name="twitter:description" content="Daily market coverage across crypto, stocks, forex, Web3 and macro — curated with context, written without hype.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>window.ASGX_PAGE = { title: "Newsroom", active: "news" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">NEWSROOM</span>
+        <h1>NEWSROOM</h1>
+        <p class="lead">Latest information across global markets.</p>
+      </div>
+    </section>
+
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="grid-12">
+          <div class="col-8">
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">TOP STORY</span>
+                <h2 class="section-title">Featured</h2>
+              </div>
+            </div>
+            <div id="featured-article" role="list"></div>
+
+            <div class="section-head mt-8">
+              <div>
+                <span class="eyebrow">COVERAGE</span>
+                <h2 class="section-title">Latest stories</h2>
+                <p class="section-sub" id="news-count" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="filters" role="group" aria-label="Filter news by category" id="news-filters"></div>
+            <div class="grid-cards" id="news-grid" role="list"></div>
+          </div>
+
+          <div class="col-4">
+            <aside aria-label="Trending and topics">
+              <div class="section-head">
+                <div>
+                  <span class="eyebrow">MOST READ</span>
+                  <h2 class="section-title">Trending</h2>
+                </div>
+              </div>
+              <div id="trending-list" role="list"></div>
+
+              <div class="section-head mt-8">
+                <div>
+                  <span class="eyebrow">BROWSE</span>
+                  <h2 class="section-title">Related topics</h2>
+                </div>
+              </div>
+              <div class="filters" role="group" aria-label="Jump to a news topic" id="topic-chips"></div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Go deeper than the headlines</h2>
+          <p>News tells you what happened. Analysis tells you what it might mean — with context, scenarios, and risk factors.</p>
+          <a class="btn btn-primary" href="/analysis/">Read the analysis</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+
+  <script>
+  /* Newsroom rendering — featured story, filterable grid, trending sidebar. */
+  document.addEventListener("asgx:ready", function () {
+    "use strict";
+    var D = window.ASGX_DATA;
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function fmtDate(iso) {
+      var d = new Date(iso + "T12:00:00");
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+    var IMGS = [
+      { src: "/assets/img/ecosystem-overview.jpg", alt: "Editorial artwork: abstract visualization of interconnected market data" },
+      { src: "/assets/img/movement.jpg", alt: "Editorial artwork: abstract visualization of market price movement" }
+    ];
+    function catLabel(c) {
+      return c.charAt(0).toUpperCase() + c.slice(1);
+    }
+    function cardHTML(n, i) {
+      var img = IMGS[i % IMGS.length];
+      return '<div class="news-card-img"><img src="' + img.src + '" alt="' + esc(img.alt) + '" loading="lazy"></div>' +
+        '<div class="news-card-body">' +
+          '<span class="badge badge-cat">' + esc(catLabel(n.category)) + '</span>' +
+          '<h3 class="news-card-title"><a href="/news/' + esc(n.slug) + '/">' + esc(n.title) + '</a></h3>' +
+          '<p class="news-card-excerpt">' + esc(n.excerpt) + '</p>' +
+          '<div class="news-card-meta"><span>' + fmtDate(n.date) + '</span><span>' + esc(n.source) + '</span></div>' +
+        '</div>';
+    }
+
+    /* ---------- FEATURED (first news item) ---------- */
+    var f = D.news[0];
+    var feat = document.getElementById("featured-article");
+    var fCard = document.createElement("article");
+    fCard.className = "card card--lift article-card";
+    fCard.setAttribute("role", "listitem");
+    fCard.innerHTML =
+      '<div class="article-card-img"><img src="' + IMGS[0].src + '" alt="' + esc(IMGS[0].alt) + '" loading="lazy"></div>' +
+      '<div class="article-card-body">' +
+        '<span class="badge badge-cat">' + esc(catLabel(f.category)) + '</span>' +
+        '<h3><a href="/news/' + esc(f.slug) + '/">' + esc(f.title) + '</a></h3>' +
+        '<p>' + esc(f.excerpt) + '</p>' +
+        '<div class="news-card-meta"><span>' + fmtDate(f.date) + '</span><span>' + esc(f.source) + '</span><span>' + esc(f.author) + '</span></div>' +
+      '</div>';
+    feat.appendChild(fCard);
+
+    /* ---------- FILTERS ---------- */
+    var CATS = [
+      { key: "all", label: "All" },
+      { key: "crypto", label: "Crypto" },
+      { key: "stocks", label: "Stocks" },
+      { key: "forex", label: "Forex" },
+      { key: "web3", label: "Web3" },
+      { key: "macro", label: "Macro" }
+    ];
+    var current = "all";
+    var filtersWrap = document.getElementById("news-filters");
+    var grid = document.getElementById("news-grid");
+    var countEl = document.getElementById("news-count");
+
+    function renderGrid() {
+      grid.innerHTML = "";
+      var items = D.news.filter(function (n) {
+        if (current === "all") return n.slug !== D.news[0].slug;
+        return n.category === current;
+      });
+      items.forEach(function (n, i) {
+        var card = document.createElement("article");
+        card.className = "card card--lift news-card";
+        card.setAttribute("role", "listitem");
+        card.innerHTML = cardHTML(n, i);
+        grid.appendChild(card);
+      });
+      countEl.textContent = "Showing " + items.length + (items.length === 1 ? " story" : " stories") +
+        (current === "all" ? "" : " in " + catLabel(current));
+    }
+
+    function applyFilter(key, focusChip) {
+      current = key;
+      var chips = filtersWrap.querySelectorAll(".filter-chip");
+      chips.forEach(function (c) {
+        var on = c.getAttribute("data-cat") === key;
+        c.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      renderGrid();
+      if (focusChip) focusChip.focus();
+    }
+
+    CATS.forEach(function (c) {
+      var chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "filter-chip";
+      chip.setAttribute("data-cat", c.key);
+      chip.setAttribute("aria-pressed", c.key === "all" ? "true" : "false");
+      chip.textContent = c.label;
+      chip.addEventListener("click", function () { applyFilter(c.key, false); });
+      filtersWrap.appendChild(chip);
+    });
+
+    /* Arrow-key navigation across chips (roving within the group). */
+    filtersWrap.addEventListener("keydown", function (e) {
+      var chips = Array.prototype.slice.call(filtersWrap.querySelectorAll(".filter-chip"));
+      var cur = chips.indexOf(document.activeElement);
+      if (cur === -1) return;
+      var next = null;
+      if (e.key === "ArrowRight") next = (cur + 1) % chips.length;
+      if (e.key === "ArrowLeft") next = (cur - 1 + chips.length) % chips.length;
+      if (e.key === "Home") next = 0;
+      if (e.key === "End") next = chips.length - 1;
+      if (next !== null) { e.preventDefault(); chips[next].focus(); }
+    });
+
+    renderGrid();
+
+    /* ---------- TRENDING SIDEBAR ---------- */
+    var trend = document.getElementById("trending-list");
+    D.news.slice(1, 4).forEach(function (n, i) {
+      var item = document.createElement("article");
+      item.className = "card brief-card";
+      item.setAttribute("role", "listitem");
+      item.innerHTML =
+        '<span class="badge badge-cat">' + esc(catLabel(n.category)) + '</span>' +
+        '<h3><a href="/news/' + esc(n.slug) + '/">' + esc(n.title) + '</a></h3>' +
+        '<div class="news-card-meta"><span>' + fmtDate(n.date) + '</span><span>' + esc(n.source) + '</span></div>';
+      trend.appendChild(item);
+    });
+
+    /* ---------- RELATED TOPICS ---------- */
+    var topics = document.getElementById("topic-chips");
+    CATS.slice(1).forEach(function (c) {
+      var chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "filter-chip";
+      chip.textContent = c.label;
+      chip.setAttribute("aria-label", "Show " + c.label + " stories");
+      chip.addEventListener("click", function () {
+        applyFilter(c.key, false);
+        document.getElementById("news-filters").scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+      topics.appendChild(chip);
+    });
+  });
+  </script>
+</body>
+</html>
