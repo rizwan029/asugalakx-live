@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold Demand Supported by Continued Central-Bank Buying — ASUGALAKX</title>
+  <meta name="description" content="Central banks added to gold reserves for a third straight month, underpinning demand as jewelry buying softened. Inside the official-sector bid for gold.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Gold Demand Supported by Continued Central-Bank Buying">
+  <meta property="og:description" content="Central banks added to gold reserves for a third straight month, underpinning demand as jewelry buying softened. Inside the official-sector bid for gold.">
+  <meta property="og:url" content="https://asugalakx.com/news/gold-demand-central-bank-buying/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gold Demand Supported by Continued Central-Bank Buying">
+  <meta name="twitter:description" content="Central banks added to gold reserves for a third straight month, underpinning demand as jewelry buying softened. Inside the official-sector bid for gold.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>window.ASGX_PAGE = { title: "Gold Demand Supported by Continued Central-Bank Buying", active: "news" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <section class="section section--tight">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/news/">News</a></li>
+            <li aria-current="page">Gold Demand Supported by Continued Central-Bank Buying</li>
+          </ol>
+        </nav>
+
+        <article>
+          <span class="badge badge-cat">Macro</span>
+          <h1 class="mt-4">Gold Demand Supported by Continued Central-Bank Buying</h1>
+          <p class="text-muted">Sep 26, 2026 &middot; ASUGALAKX Desk &middot; Commodities Team</p>
+          <figure class="mt-6">
+            <img src="/assets/img/ecosystem-overview.jpg" alt="Editorial artwork: abstract visualization of interconnected market data" loading="lazy" style="width:100%;height:auto;display:block;border-radius:var(--radius)">
+          </figure>
+
+          <div class="prose mt-6">
+            <p>Central banks continued to add to their gold reserves for a third consecutive month, extending one of the most persistent official-sector buying streaks in recent memory. The purchases have provided a steady bid beneath the market, offsetting softer jewelry demand in key consuming regions.</p>
+            <p>The motivations are structural rather than tactical. Reserve diversification away from concentrated currency exposure, a desire for assets without counterparty risk, and the long memory of sanctions-era asset freezes have all pushed official institutions toward the metal. These are slow-moving forces — which is precisely why they matter for the demand outlook.</p>
+            <p>Physical premiums in Asian markets remain firm versus London spot, suggesting end-user demand is genuine rather than paper-driven. When physical and futures markets tell the same story, the signal is worth more weight than either alone.</p>
+            <h2>What could change the picture</h2>
+            <p>The main risk to the thesis is the opportunity cost of holding a non-yielding asset. If real yields were to rise sharply, the arithmetic for reserve managers would shift at the margin. For now, though, the buying has continued through various rate regimes — evidence that the allocation decision is strategic, not cyclical.</p>
+            <div class="callout">
+              <strong>Market Context.</strong> Gold&#x27;s official-sector bid is a flow story with a balance-sheet rationale. It does not set a price target, but it does put a firmer floor under drawdowns than speculative positioning alone could provide.
+            </div>
+          </div>
+
+          <p class="text-muted mt-8"><em>This content is for informational and educational purposes only and does not constitute financial advice.</em></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">KEEP READING</span>
+            <h2 class="section-title">Related articles</h2>
+          </div>
+          <a class="btn btn-outline btn-sm" href="/news/">All news</a>
+        </div>
+        <div class="grid-cards" id="related-grid" role="list"></div>
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+
+  <script>
+  /* Related articles — three other stories from the newsroom. */
+  document.addEventListener("asgx:ready", function () {
+    "use strict";
+    var D = window.ASGX_DATA;
+    var SLUG = "gold-demand-central-bank-buying";
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function fmtDate(iso) {
+      var d = new Date(iso + "T12:00:00");
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+    var IMGS = [
+      { src: "/assets/img/ecosystem-overview.jpg", alt: "Editorial artwork: abstract visualization of interconnected market data" },
+      { src: "/assets/img/movement.jpg", alt: "Editorial artwork: abstract visualization of market price movement" }
+    ];
+    function catLabel(c) { return c.charAt(0).toUpperCase() + c.slice(1); }
+
+    var idx = -1;
+    D.news.forEach(function (n, i) { if (n.slug === SLUG) idx = i; });
+    var related = [];
+    for (var k = 1; k <= 3; k++) related.push(D.news[(idx + k) % D.news.length]);
+
+    var grid = document.getElementById("related-grid");
+    related.forEach(function (n, i) {
+      var img = IMGS[(idx + i) % IMGS.length];
+      var card = document.createElement("article");
+      card.className = "card card--lift news-card";
+      card.setAttribute("role", "listitem");
+      card.innerHTML =
+        '<div class="news-card-img"><img src="' + img.src + '" alt="' + esc(img.alt) + '" loading="lazy"></div>' +
+        '<div class="news-card-body">' +
+          '<span class="badge badge-cat">' + esc(catLabel(n.category)) + '</span>' +
+          '<h3 class="news-card-title"><a href="/news/' + esc(n.slug) + '/">' + esc(n.title) + '</a></h3>' +
+          '<p class="news-card-excerpt">' + esc(n.excerpt) + '</p>' +
+          '<div class="news-card-meta"><span>' + fmtDate(n.date) + '</span><span>' + esc(n.source) + '</span></div>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+  });
+  </script>
+</body>
+</html>

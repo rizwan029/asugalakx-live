@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web3 — ASUGALAKX</title>
+  <meta name="description" content="Explore the Web3 ecosystem with ASUGALAKX: DeFi, RWA, infrastructure, stablecoins, NFTs and AI-crypto intersections — explained with sober context.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Web3 — ASUGALAKX">
+  <meta property="og:description" content="DeFi, RWA, infrastructure, stablecoins, NFTs and AI-crypto intersections — the Web3 ecosystem explained with sober market context.">
+  <meta property="og:url" content="https://asugalakx.com/web3/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web3 — ASUGALAKX">
+  <meta name="twitter:description" content="DeFi, RWA, infrastructure, stablecoins, NFTs and AI-crypto intersections — the Web3 ecosystem explained with sober market context.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>window.ASGX_PAGE = { title: "Web3", active: "web3" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">WEB3 ECOSYSTEM</span>
+        <h1>WEB3</h1>
+        <p class="lead">Exploring the decentralized ecosystem: DeFi, RWA, infrastructure, and beyond.</p>
+      </div>
+    </section>
+
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="grid-12">
+          <div class="col-6">
+            <figure class="card" style="margin:0">
+              <img src="/assets/img/ecosystem-overview.jpg" alt="Editorial artwork: abstract overview of the interconnected Web3 ecosystem" loading="lazy" style="width:100%;height:auto;display:block;border-radius:var(--radius)">
+            </figure>
+          </div>
+          <div class="col-6">
+            <span class="eyebrow">THE MAP</span>
+            <h2 class="section-title">One ecosystem, many layers</h2>
+            <p>Web3 is not a single market — it is a stack. Settlement networks at the base, financial applications in the middle, and ownership, identity, and culture at the edges. Each layer has its own economics, its own risks, and its own metrics worth watching.</p>
+            <p>ASUGALAKX covers the stack as a whole rather than chasing individual tokens. The tiles below map the major domains: what each one is, why it matters, and where it connects to the rest of the ecosystem.</p>
+            <p class="text-muted">Token and protocol references across this section describe a proposed ecosystem in development — nothing here implies a live product or offering.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">ECOSYSTEM MAP</span>
+            <h2 class="section-title">Explore the domains</h2>
+            <p class="section-sub">Eight areas we track, research, and explain.</p>
+          </div>
+        </div>
+        <div class="grid-cards grid-cards--sm" id="eco-tiles" role="list"></div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-band">
+          <h2>From ecosystem to intelligence</h2>
+          <p>Our AI agent concepts are designed to read this entire stack — DeFi flows, NFT markets, infrastructure health — and turn it into structured insight.</p>
+          <a class="btn btn-primary" href="/ai-agents/">Meet the AI agents</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+
+  <script>
+  /* Web3 ecosystem map — tiles rendered from a local domain catalog. */
+  document.addEventListener("asgx:ready", function () {
+    "use strict";
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    var TILES = [
+      { icon: "D", name: "DeFi", href: "/crypto/",
+        desc: "Decentralized finance: lending, trading, and yield protocols that recreate financial services without intermediaries. We track flows, fees, and protocol risk — not token prices." },
+      { icon: "R", name: "RWA", href: "/markets/",
+        desc: "Real-world assets: the tokenization of treasuries, credit, and commodities on-chain. The bridge where traditional market structure meets blockchain settlement." },
+      { icon: "I", name: "Infrastructure", href: "/technology/",
+        desc: "The base layer: L1s, L2s, oracles, and data availability. Throughput, fees, and validator economics determine what everything above can actually do." },
+      { icon: "S", name: "Stablecoins", href: "/markets/",
+        desc: "The ecosystem's settlement currency. Supply growth, reserve composition, and on-chain velocity reveal where real economic activity is happening." },
+      { icon: "N", name: "NFT", href: "/nft/",
+        desc: "Digital ownership and culture: collectibles, identity, and on-chain provenance. Our proposed 8,888-mask collection lives here — in development." },
+      { icon: "A", name: "AI × Crypto", href: "/ai-agents/",
+        desc: "Where machine intelligence meets open networks: data markets, compute coordination, and agent infrastructure. The conceptual home of our AI agent research." },
+      { icon: "G", name: "Gaming", href: "/community/",
+        desc: "On-chain games and virtual economies: true asset ownership, player-driven markets, and the experiments that stress-test blockchain UX at scale." },
+      { icon: "X", name: "ASGX", href: "/asgx/",
+        desc: "The proposed ASGX utility token for the ASUGALAKX ecosystem — governance, access, and rewards. Currently in the design stage; nothing is live." }
+    ];
+
+    var wrap = document.getElementById("eco-tiles");
+    TILES.forEach(function (t) {
+      var tile = document.createElement("article");
+      tile.className = "card card--lift eco-tile";
+      tile.setAttribute("role", "listitem");
+      tile.innerHTML =
+        '<div class="eco-tile-icon" aria-hidden="true">' + esc(t.icon) + '</div>' +
+        '<h3>' + esc(t.name) + '</h3>' +
+        '<p>' + esc(t.desc) + '</p>' +
+        '<a class="tile-link" href="' + t.href + '">Explore ' + esc(t.name) + ' →</a>';
+      wrap.appendChild(tile);
+    });
+  });
+  </script>
+</body>
+</html>
