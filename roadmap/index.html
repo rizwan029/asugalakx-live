@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap — ASUGALAKX</title>
+  <meta name="description" content="The ASUGALAKX roadmap: an eight-phase plan from foundation through market intelligence, AI agents, the ASGX token, and full ecosystem expansion.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Roadmap — ASUGALAKX">
+  <meta property="og:description" content="An eight-phase plan from foundation to full ecosystem.">
+  <meta property="og:url" content="https://asugalakx.com/roadmap/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Roadmap — ASUGALAKX">
+  <meta name="twitter:description" content="An eight-phase plan from foundation to full ecosystem.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>window.ASGX_PAGE = { title: "Roadmap", active: "roadmap" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+
+  <main id="asgx-main">
+    <!-- ================= PAGE HERO ================= -->
+    <section class="page-hero">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><span aria-current="page">Roadmap</span></li>
+          </ol>
+        </nav>
+        <span class="eyebrow">Building in phases</span>
+        <h1>Roadmap</h1>
+        <p class="lead">A phased plan from foundation to full ecosystem.</p>
+      </div>
+    </section>
+
+    <!-- ================= TIMELINE ================= -->
+    <section class="section" aria-labelledby="phases-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">The plan</span>
+            <h2 class="section-title" id="phases-title">Eight Phases</h2>
+            <p class="section-sub">Phase 1 is in development. Everything beyond it is planned — timelines are targets, not promises.</p>
+          </div>
+        </div>
+        <ol class="timeline" id="roadmap-timeline"></ol>
+      </div>
+    </section>
+
+    <!-- ================= VISUAL ================= -->
+    <section class="section section--flush-top" aria-labelledby="visual-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Structure</span>
+            <h2 class="section-title" id="visual-title">How the Ecosystem Fits Together</h2>
+            <p class="section-sub">The phased build in one view — from brand and website to a full ecosystem.</p>
+          </div>
+        </div>
+        <figure class="card" style="padding:var(--space-4)">
+          <img src="/assets/img/website-structure.jpg" alt="Diagram of the ASUGALAKX ecosystem structure, showing how the website, market intelligence, AI agents, community, academy, token, and NFT collection connect" style="width:100%;height:auto;border-radius:var(--radius);display:block">
+          <figcaption class="text-muted mt-4" style="font-size:.82rem">Planned ecosystem structure. Components appear as their roadmap phase ships.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= CTA BAND ================= -->
+    <section class="section section--flush-top" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-band">
+          <h2 id="cta-title">Follow the build.</h2>
+          <p>Phase 1 is underway — the website, demo market experience, and community channels are taking shape. Track progress and join the discussion.</p>
+          <a class="btn btn-primary btn-lg" href="/community/">Join the Community</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="asgx-footer"></div>
+
+  <script>
+    document.addEventListener("asgx:ready", function () {
+      var D = window.ASGX_DATA;
+      var roadmap = D.roadmap || [];
+      var list = document.getElementById("roadmap-timeline");
+
+      function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+      list.innerHTML = roadmap.map(function (p) {
+        var active = p.status === "IN DEVELOPMENT";
+        var badge = active
+          ? '<span class="badge badge-dev">' + D.meta.devLabel + '</span>'
+          : '<span class="badge">PLANNED</span>';
+        var items = (p.items || []).map(function (it) { return "<li>" + it + "</li>"; }).join("");
+        return '<li class="timeline-item' + (active ? " is-active" : "") + '">' +
+          '<h3><span class="text-muted" style="margin-right:var(--space-2)">' + pad(p.phase) + '</span> ' + p.title + '</h3>' +
+          '<div class="phase-status">' + badge + ' <span class="text-muted" style="font-size:.82rem;margin-left:var(--space-2)">' + p.timeline + '</span></div>' +
+          '<ul class="card-text">' + items + '</ul>' +
+          '</li>';
+      }).join("");
+    });
+  </script>
+</body>
+</html>
