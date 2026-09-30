@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agents — ASUGALAKX</title>
+  <meta name="description" content="Meet the seven conceptual ASUGALAKX AI agents: a development-stage intelligence pipeline turning raw market data into structured, verified insight.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="AI Agents — ASUGALAKX">
+  <meta property="og:description" content="Seven conceptual AI agents forming one intelligence layer: from raw market data to structured, verified insight. In development — not live systems.">
+  <meta property="og:url" content="https://asugalakx.com/ai-agents/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Agents — ASUGALAKX">
+  <meta name="twitter:description" content="Seven conceptual AI agents forming one intelligence layer: from raw market data to structured, verified insight. In development — not live systems.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>window.ASGX_PAGE = { title: "AI Agents", active: "ai-agents" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">ASUGALAKX AI MARKET INTELLIGENCE</span>
+        <h1>7 AI AGENTS. 1 INTELLIGENCE LAYER.</h1>
+        <p class="lead">A conceptual intelligence pipeline that turns raw market data into structured, verified insight.</p>
+      </div>
+    </section>
+
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="callout">
+          <strong>An honest note first.</strong> These agents are concepts in development. They are not live systems and do not execute trades.
+          Everything below describes design intent — what we are building toward, not what exists today.
+        </div>
+
+        <div class="section-head mt-8">
+          <div>
+            <span class="eyebrow">PIPELINE</span>
+            <h2 class="section-title">From raw data to structured insight</h2>
+            <p class="section-sub">Each stage refines the output of the last. Concept design — not a live system.</p>
+          </div>
+          <span class="badge badge-dev">IN DEVELOPMENT</span>
+        </div>
+        <div class="pipeline" aria-label="Intelligence pipeline stages">
+          <div class="pipeline-step"><span class="step-num">01</span><strong>DATA</strong><span>Raw market feeds, news, and on-chain streams enter the pipeline.</span></div>
+          <div class="pipeline-step"><span class="step-num">02</span><strong>SCOUT</strong><span>Unusual activity is surfaced across markets, with context attached.</span></div>
+          <div class="pipeline-step"><span class="step-num">03</span><strong>VERIFY</strong><span>Claims are checked against primary sources before they spread.</span></div>
+          <div class="pipeline-step"><span class="step-num">04</span><strong>ANALYZE</strong><span>Market structure and macro context are mapped and explained.</span></div>
+          <div class="pipeline-step"><span class="step-num">05</span><strong>CONTEXT</strong><span>Narratives and sentiment are connected across markets.</span></div>
+          <div class="pipeline-step"><span class="step-num">06</span><strong>RESEARCH</strong><span>Structured, cited research notes are built for depth.</span></div>
+          <div class="pipeline-step"><span class="step-num">07</span><strong>COMMUNITY</strong><span>Insight is translated into useful community content.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">THE SEVEN</span>
+            <h2 class="section-title">Meet the agents</h2>
+            <p class="section-sub">Each agent owns one stage of the pipeline — specialized, transparent, and accountable to human review.</p>
+          </div>
+        </div>
+        <div class="grid-cards grid-cards--lg" id="agent-grid" role="list"></div>
+
+        <div class="callout mt-8">
+          <strong>Design principles.</strong> Human review stays in the loop at every stage. Agents surface and structure information —
+          they never place trades, manage assets, or issue financial advice. Verification runs before amplification, always.
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Follow the build</h2>
+          <p>Agent development is tracked on our public roadmap — from alpha pilots of Scout and Market to the full intelligence layer.</p>
+          <a class="btn btn-primary" href="/roadmap/">View the roadmap</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+
+  <script>
+  /* AI agent detail cards — rendered from ASGX_DATA.agents (7, in pipeline order). */
+  document.addEventListener("asgx:ready", function () {
+    "use strict";
+    var D = window.ASGX_DATA;
+    var DEV = D.meta.devLabel;
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function pad(n) {
+      return (n < 10 ? "0" : "") + n;
+    }
+
+    var wrap = document.getElementById("agent-grid");
+    D.agents.forEach(function (ag, i) {
+      var caps = ag.capabilities.map(function (c) {
+        return "<li>" + esc(c) + "</li>";
+      }).join("");
+
+      var card = document.createElement("article");
+      card.className = "card card--lift agent-card";
+      card.setAttribute("role", "listitem");
+      card.id = "agent-" + ag.id;
+      card.innerHTML =
+        '<div class="agent-card-head">' +
+          '<span class="agent-card-icon" aria-hidden="true">' + esc(ag.name.charAt(0)) + '</span>' +
+          '<div>' +
+            '<span class="step-num">' + pad(i + 1) + '</span>' +
+            '<h3 class="agent-card-name">' + esc(ag.name) + '</h3>' +
+            '<p class="agent-card-role">' + esc(ag.role) + '</p>' +
+          '</div>' +
+        '</div>' +
+        '<p class="agent-card-desc">' + esc(ag.description) + '</p>' +
+        '<h4>Capabilities</h4>' +
+        '<ul>' + caps + '</ul>' +
+        '<dl class="agent-io">' +
+          '<div><dt>Input</dt><dd>' + esc(ag.input) + '</dd></div>' +
+          '<div><dt>Output</dt><dd>' + esc(ag.output) + '</dd></div>' +
+        '</dl>' +
+        '<div class="agent-card-foot">' +
+          '<span class="badge badge-dev">' + esc(DEV) + '</span>' +
+          '<a class="btn btn-ghost btn-sm" href="/roadmap/">Roadmap</a>' +
+        '</div>';
+      wrap.appendChild(card);
+    });
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis — ASUGALAKX</title>
+  <meta name="description" content="Structured market analysis from the ASUGALAKX research desk: market context, key data, possible scenarios and risk factors — sober and educational.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Analysis — ASUGALAKX">
+  <meta property="og:description" content="Market context, key data, possible scenarios and risk factors from the ASUGALAKX research desk — sober, hype-free, educational.">
+  <meta property="og:url" content="https://asugalakx.com/analysis/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Analysis — ASUGALAKX">
+  <meta name="twitter:description" content="Market context, key data, possible scenarios and risk factors from the ASUGALAKX research desk — sober, hype-free, educational.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>window.ASGX_PAGE = { title: "Analysis", active: "analysis" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">RESEARCH</span>
+        <h1>ANALYSIS</h1>
+        <p class="lead">Structured market analysis with context, scenarios, and risk factors.</p>
+      </div>
+    </section>
+
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">RESEARCH DESK</span>
+            <h2 class="section-title">Latest analysis</h2>
+            <p class="section-sub" id="analysis-count" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="filters" role="group" aria-label="Filter analysis by category" id="analysis-filters"></div>
+        <div id="analysis-list"></div>
+
+        <div class="callout mt-8">
+          <strong>Read with care.</strong> This content is for informational and educational purposes only and does not constitute financial advice.
+          Research figures are illustrative context for demonstration purposes — they are not live market data and never imply a guaranteed outcome.
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+
+  <script>
+  /* Analysis rendering — anchored, filterable research sections built from ASGX_DATA. */
+  document.addEventListener("asgx:ready", function () {
+    "use strict";
+    var D = window.ASGX_DATA;
+    var DEMO = D.meta.demoLabel;
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function fmtDate(iso) {
+      var d = new Date(iso + "T12:00:00");
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+    function catLabel(c) {
+      var map = { market: "Market analysis", technical: "Technical analysis", macro: "Macro", research: "Research" };
+      return map[c] || c;
+    }
+
+    var list = document.getElementById("analysis-list");
+
+    D.analysis.forEach(function (a) {
+      var sec = document.createElement("section");
+      sec.className = "card analysis-block mt-6";
+      sec.id = a.slug;
+      sec.setAttribute("data-category", a.category);
+
+      var stats = a.keyData.map(function (k) {
+        return '<div class="stat"><div class="stat-value">' + esc(k.value) + '</div>' +
+               '<div class="stat-label">' + esc(k.label) + '</div></div>';
+      }).join("");
+
+      var scenarios = a.scenario.map(function (s) {
+        return '<div class="card"><h4 class="card-title">' + esc(s.name) + '</h4>' +
+               '<p class="card-text">' + esc(s.description) + '</p></div>';
+      }).join("");
+
+      var risks = a.risks.map(function (r) {
+        return "<li>" + esc(r) + "</li>";
+      }).join("");
+
+      sec.innerHTML =
+        '<div class="section-head">' +
+          '<div>' +
+            '<span class="badge badge-cat">' + esc(catLabel(a.category)) + '</span>' +
+            '<h2 class="section-title"><a href="/analysis/#' + esc(a.slug) + '">' + esc(a.title) + '</a></h2>' +
+            '<p class="section-sub">' + fmtDate(a.date) + ' · ASUGALAKX Research Desk</p>' +
+          '</div>' +
+        '</div>' +
+        '<p class="card-text">' + esc(a.summary) + '</p>' +
+        '<h3>Market Context</h3>' +
+        '<p>' + esc(a.context) + '</p>' +
+        '<h3>Key Data <span class="badge badge-demo">' + esc(DEMO) + '</span></h3>' +
+        '<div class="stat-row">' + stats + '</div>' +
+        '<p class="text-muted table-note">Illustrative research figures for demonstration purposes only — not live market data.</p>' +
+        '<h3>Possible Scenarios</h3>' +
+        '<div class="grid-cards grid-cards--sm">' + scenarios + '</div>' +
+        '<h3>Risk Factors</h3>' +
+        '<ul>' + risks + '</ul>' +
+        '<h3>Conclusion</h3>' +
+        '<p>' + esc(a.conclusion) + '</p>';
+      list.appendChild(sec);
+    });
+
+    /* ---------- CATEGORY FILTERS ---------- */
+    var CATS = [
+      { key: "all", label: "All analysis" },
+      { key: "market", label: "Market Analysis" },
+      { key: "technical", label: "Technical Analysis" },
+      { key: "macro", label: "Macro" },
+      { key: "research", label: "Research" }
+    ];
+    var filtersWrap = document.getElementById("analysis-filters");
+    var countEl = document.getElementById("analysis-count");
+
+    function updateCount(visible) {
+      countEl.textContent = "Showing " + visible + (visible === 1 ? " analysis" : " analyses");
+    }
+
+    function applyFilter(key) {
+      var sections = list.querySelectorAll(".analysis-block");
+      var visible = 0;
+      sections.forEach(function (s) {
+        var show = key === "all" || s.getAttribute("data-category") === key;
+        s.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+      updateCount(visible);
+      var chips = filtersWrap.querySelectorAll(".filter-chip");
+      chips.forEach(function (c) {
+        c.setAttribute("aria-pressed", c.getAttribute("data-cat") === key ? "true" : "false");
+      });
+    }
+
+    CATS.forEach(function (c) {
+      var chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "filter-chip";
+      chip.setAttribute("data-cat", c.key);
+      chip.setAttribute("aria-pressed", c.key === "all" ? "true" : "false");
+      chip.textContent = c.label;
+      chip.addEventListener("click", function () { applyFilter(c.key); });
+      filtersWrap.appendChild(chip);
+    });
+
+    filtersWrap.addEventListener("keydown", function (e) {
+      var chips = Array.prototype.slice.call(filtersWrap.querySelectorAll(".filter-chip"));
+      var cur = chips.indexOf(document.activeElement);
+      if (cur === -1) return;
+      var next = null;
+      if (e.key === "ArrowRight") next = (cur + 1) % chips.length;
+      if (e.key === "ArrowLeft") next = (cur - 1 + chips.length) % chips.length;
+      if (e.key === "Home") next = 0;
+      if (e.key === "End") next = chips.length - 1;
+      if (next !== null) { e.preventDefault(); chips[next].focus(); }
+    });
+
+    updateCount(D.analysis.length);
+
+    /* If a deep link (#slug) arrives while a filter is active, reset to All. */
+    if (window.location.hash) {
+      var target = document.querySelector(window.location.hash);
+      if (target && target.classList.contains("analysis-block")) applyFilter("all");
+    }
+  });
+  </script>
+</body>
+</html>

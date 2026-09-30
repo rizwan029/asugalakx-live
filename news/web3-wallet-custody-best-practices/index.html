@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web3 Security Basics: Wallet Custody Best Practices — ASUGALAKX</title>
+  <meta name="description" content="Seed-phrase hygiene, hardware wallets and approval management — a practical, plain-language checklist from the ASUGALAKX Academy for protecting on-chain assets.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Web3 Security Basics: Wallet Custody Best Practices">
+  <meta property="og:description" content="Seed-phrase hygiene, hardware wallets and approval management — a practical, plain-language checklist from the ASUGALAKX Academy for protecting on-chain assets.">
+  <meta property="og:url" content="https://asugalakx.com/news/web3-wallet-custody-best-practices/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web3 Security Basics: Wallet Custody Best Practices">
+  <meta name="twitter:description" content="Seed-phrase hygiene, hardware wallets and approval management — a practical, plain-language checklist from the ASUGALAKX Academy for protecting on-chain assets.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>window.ASGX_PAGE = { title: "Web3 Security Basics: Wallet Custody Best Practices", active: "news" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <section class="section section--tight">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/news/">News</a></li>
+            <li aria-current="page">Web3 Security Basics: Wallet Custody Best Practices</li>
+          </ol>
+        </nav>
+
+        <article>
+          <span class="badge badge-cat">Web3</span>
+          <h1 class="mt-4">Web3 Security Basics: Wallet Custody Best Practices</h1>
+          <p class="text-muted">Sep 25, 2026 &middot; ASUGALAKX Academy &middot; Education Team</p>
+          <figure class="mt-6">
+            <img src="/assets/img/ecosystem-overview.jpg" alt="Editorial artwork: abstract visualization of interconnected market data" loading="lazy" style="width:100%;height:auto;display:block;border-radius:var(--radius)">
+          </figure>
+
+          <div class="prose mt-6">
+            <p>In Web3, you are your own bank — which means you are also your own security department. Most asset losses in crypto trace back not to broken cryptography but to compromised custody: leaked seed phrases, malicious approvals, and social engineering. The good news is that a short checklist covers the majority of the risk.</p>
+            <p>Start with the seed phrase. Write it on paper or stamped metal, store copies in separate physical locations, and never photograph it, type it into a website, or share it with anyone — including anyone claiming to be support. No legitimate service will ever ask for it.</p>
+            <p>Next, separate your wallets by purpose. A hardware wallet for long-term holdings, kept offline except when signing; a smaller hot wallet for daily interaction with applications. If the hot wallet is ever compromised, the damage is contained by design.</p>
+            <p>Then manage your token approvals. Every time you interact with a decentralized application, you may grant it permission to move your tokens. Review and revoke stale approvals periodically with a reputable approval-management tool — an old unlimited approval is an open door you forgot about.</p>
+            <h2>The human layer</h2>
+            <p>Finally, treat urgency as a red flag. Phishing in Web3 runs on manufactured panic: fake airdrops, impersonated support accounts, “verify now” links. A genuine opportunity will still exist after you pause, verify the source independently, and think. Most losses happen in the five minutes after someone stops thinking.</p>
+            <div class="callout">
+              <strong>Market Context.</strong> Security is a practice, not a product. No wallet — hardware or otherwise — protects assets from a user who signs a malicious transaction. Slow down at the signing screen: it is the last line of defense, and it is yours.
+            </div>
+          </div>
+
+          <p class="text-muted mt-8"><em>This content is for informational and educational purposes only and does not constitute financial advice.</em></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">KEEP READING</span>
+            <h2 class="section-title">Related articles</h2>
+          </div>
+          <a class="btn btn-outline btn-sm" href="/news/">All news</a>
+        </div>
+        <div class="grid-cards" id="related-grid" role="list"></div>
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+
+  <script>
+  /* Related articles — three other stories from the newsroom. */
+  document.addEventListener("asgx:ready", function () {
+    "use strict";
+    var D = window.ASGX_DATA;
+    var SLUG = "web3-wallet-custody-best-practices";
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function fmtDate(iso) {
+      var d = new Date(iso + "T12:00:00");
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+    var IMGS = [
+      { src: "/assets/img/ecosystem-overview.jpg", alt: "Editorial artwork: abstract visualization of interconnected market data" },
+      { src: "/assets/img/movement.jpg", alt: "Editorial artwork: abstract visualization of market price movement" }
+    ];
+    function catLabel(c) { return c.charAt(0).toUpperCase() + c.slice(1); }
+
+    var idx = -1;
+    D.news.forEach(function (n, i) { if (n.slug === SLUG) idx = i; });
+    var related = [];
+    for (var k = 1; k <= 3; k++) related.push(D.news[(idx + k) % D.news.length]);
+
+    var grid = document.getElementById("related-grid");
+    related.forEach(function (n, i) {
+      var img = IMGS[(idx + i) % IMGS.length];
+      var card = document.createElement("article");
+      card.className = "card card--lift news-card";
+      card.setAttribute("role", "listitem");
+      card.innerHTML =
+        '<div class="news-card-img"><img src="' + img.src + '" alt="' + esc(img.alt) + '" loading="lazy"></div>' +
+        '<div class="news-card-body">' +
+          '<span class="badge badge-cat">' + esc(catLabel(n.category)) + '</span>' +
+          '<h3 class="news-card-title"><a href="/news/' + esc(n.slug) + '/">' + esc(n.title) + '</a></h3>' +
+          '<p class="news-card-excerpt">' + esc(n.excerpt) + '</p>' +
+          '<div class="news-card-meta"><span>' + fmtDate(n.date) + '</span><span>' + esc(n.source) + '</span></div>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+  });
+  </script>
+</body>
+</html>
