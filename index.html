@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASUGALAKX — Market Intelligence & Trading Community for Crypto, Stocks, Forex & Web3</title>
+  <meta name="description" content="ASUGALAKX is a market intelligence and trading community covering Crypto, Stocks, Forex and Web3 — with data-driven analysis, AI market agents, an academy, and the ASGX ecosystem. Trade × Learn × Grow.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="ASUGALAKX — Understand the Market. Trade with Context.">
+  <meta property="og:description" content="Market intelligence, analysis, education, and community for Crypto, Stocks, Forex & Web3.">
+  <meta property="og:url" content="https://asugalakx.com/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ASUGALAKX — Understand the Market. Trade with Context.">
+  <meta name="twitter:description" content="Market intelligence, analysis, education, and community for Crypto, Stocks, Forex & Web3.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ASUGALAKX",
+    "url": "https://asugalakx.com/",
+    "logo": "https://asugalakx.com/assets/img/asgx-coin.jpg",
+    "slogan": "TRADE × LEARN × GROW",
+    "description": "Market intelligence & trading community covering Crypto, Stocks, Forex and Web3."
+  }
+  </script>
+  <script>window.ASGX_PAGE = { title: "Market Intelligence & Trading Community", active: "home" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+
+  <main id="asgx-main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="hero-eyebrow">ASUGALAKX</span>
+            <h1 class="hero-title" id="hero-title">UNDERSTAND THE MARKET.<br><span class="accent">TRADE WITH CONTEXT.</span></h1>
+            <p class="hero-sub">Market intelligence, analysis, education, and community for Crypto, Stocks, Forex &amp; Web3.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary btn-lg" href="/markets/">Explore Markets</a>
+              <a class="btn btn-outline btn-lg" href="/community/">Join Community</a>
+            </div>
+            <p class="hero-note">Data first. Context always. Hype never. &mdash; All figures on this site are sample data for demonstration.</p>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-glow"></div>
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span><span class="particle"></span><span class="particle"></span>
+            <div class="coin-frame">
+              <img src="/assets/img/asgx-coin.jpg" alt="" width="340" height="340">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARKET PULSE ================= -->
+    <section class="section" aria-labelledby="pulse-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Live Snapshot</span>
+            <h2 class="section-title" id="pulse-title">Market Pulse</h2>
+            <p class="section-sub">A cross-market snapshot across crypto, equities, commodities and FX.</p>
+          </div>
+          <span class="badge badge-demo">Demo Data</span>
+        </div>
+        <div class="grid-cards" id="market-pulse" role="list" aria-label="Market pulse cards"></div>
+      </div>
+    </section>
+
+    <!-- ================= TODAY'S BRIEF ================= -->
+    <section class="section section--tight" aria-labelledby="brief-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Intelligence</span>
+            <h2 class="section-title" id="brief-title">Today&rsquo;s Brief</h2>
+            <p class="section-sub">Concise, context-first reads from the ASUGALAKX desk.</p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/news/">All news &rarr;</a>
+        </div>
+        <div class="grid-cards" id="todays-brief" role="list" aria-label="Today's brief"></div>
+      </div>
+    </section>
+
+    <!-- ================= MARKET OVERVIEW ================= -->
+    <section class="section section--tight" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Coverage</span>
+            <h2 class="section-title" id="overview-title">Market Overview</h2>
+            <p class="section-sub">Four markets, one lens. Select a market to preview coverage.</p>
+          </div>
+          <span class="badge badge-demo">Demo Data</span>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Market categories" id="overview-tabs"></div>
+        <div id="overview-panel" aria-live="polite"></div>
+        <div class="text-center mt-6">
+          <a class="btn btn-outline" href="/markets/">View full markets &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LATEST NEWS ================= -->
+    <section class="section section--tight" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Newsroom</span>
+            <h2 class="section-title" id="news-title">Latest News</h2>
+            <p class="section-sub">Verified, hype-free reporting across every market we cover.</p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/news/">All news &rarr;</a>
+        </div>
+        <div class="grid-cards" id="latest-news" role="list" aria-label="Latest news"></div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED ANALYSIS ================= -->
+    <section class="section section--tight" aria-labelledby="analysis-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Research</span>
+            <h2 class="section-title" id="analysis-title">Featured Analysis</h2>
+            <p class="section-sub">Possible scenarios, market context, risk factors — never predictions dressed as certainty.</p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/analysis/">All analysis &rarr;</a>
+        </div>
+        <div class="grid-cards grid-cards--lg" id="featured-analysis" role="list" aria-label="Featured analysis"></div>
+      </div>
+    </section>
+
+    <!-- ================= AI MARKET INTELLIGENCE ================= -->
+    <section class="section section--tight" aria-labelledby="agents-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">AI Division</span>
+            <h2 class="section-title" id="agents-title">AI Market Intelligence</h2>
+            <p class="section-sub">Seven specialized agents, each built for one job in the intelligence pipeline.</p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="/ai-agents/">Meet the agents &rarr;</a>
+        </div>
+        <div class="grid-cards grid-cards--sm" id="agent-grid" role="list" aria-label="AI agents"></div>
+      </div>
+    </section>
+
+    <!-- ================= ECOSYSTEM ================= -->
+    <section class="section section--tight" aria-labelledby="eco-title">
+      <div class="container">
+        <div class="text-center mb-6">
+          <span class="eyebrow">The Ecosystem</span>
+          <h2 class="section-title" id="eco-title">One Platform, Every Angle of the Market</h2>
+        </div>
+        <div class="grid-cards grid-cards--sm">
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9672;</div>
+            <h3>Market Data</h3>
+            <p>Cross-market coverage — crypto, stocks, forex and commodities — with charts and screeners.</p>
+            <a class="tile-link" href="/markets/">Explore &rarr;</a>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9673;</div>
+            <h3>AI Agents</h3>
+            <p>Seven specialized agents for signals, verification, macro context and research. <span class="badge badge-dev">In Development</span></p>
+            <a class="tile-link" href="/ai-agents/">Meet them &rarr;</a>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9674;</div>
+            <h3>Academy</h3>
+            <p>Structured learning tracks from market foundations to derivatives and macro.</p>
+            <a class="tile-link" href="/academy/">Start learning &rarr;</a>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9675;</div>
+            <h3>NFT Collection</h3>
+            <p>8,888 masks — identity and community roles for the ecosystem. <span class="badge badge-proposed">Proposed</span></p>
+            <a class="tile-link" href="/nft/">View collection &rarr;</a>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9676;</div>
+            <h3>ASGX Token</h3>
+            <p>Utility token for governance, access and rewards across the platform. <span class="badge badge-proposed">Proposed</span></p>
+            <a class="tile-link" href="/asgx/">Token overview &rarr;</a>
+          </article>
+          <article class="card card--lift eco-tile">
+            <div class="eco-tile-icon" aria-hidden="true">&#9677;</div>
+            <h3>Community</h3>
+            <p>Discussions, events and trading journals with traders who value context over hype.</p>
+            <a class="tile-link" href="/community/">Join us &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA BAND ================= -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-band">
+          <h2 id="cta-title">ONE ECOSYSTEM. FOUR MARKETS.<br>INFINITE INSIGHTS.</h2>
+          <p>Join a community that reads the market with data first, context always — and hype never.</p>
+          <a class="btn btn-primary btn-lg" href="/community/">Join the Community</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="asgx-footer"></div>
+
+  <script>
+  /* Homepage rendering — runs after shared chrome (asgx:ready) so data.js + charts.js are loaded. */
+  document.addEventListener("asgx:ready", function () {
+    "use strict";
+    var D = window.ASGX_DATA;
+    var C = window.ASGX_CHARTS;
+    var DEMO = D.meta.demoLabel;
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function fmtPrice(v) {
+      var dec = Math.abs(v) < 10 ? 4 : 2;
+      return Number(v).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+    }
+    function fmtChange(v) {
+      return (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+    }
+    function fmtDate(iso) {
+      var d = new Date(iso + "T12:00:00");
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+    function assetBySymbol(sym) {
+      return D.assets.filter(function (a) { return a.symbol === sym; })[0];
+    }
+
+    /* ---------- MARKET PULSE ---------- */
+    var pulseConfig = [
+      { symbol: "BTC" }, { symbol: "ETH" },
+      { symbol: "SPX", display: "S&P 500" },
+      { symbol: "XAU", display: "GOLD" },
+      { symbol: "EUR/USD" }
+    ];
+    var pulse = document.getElementById("market-pulse");
+    pulseConfig.forEach(function (cfg) {
+      var a = assetBySymbol(cfg.symbol);
+      if (!a) return;
+      var up = a.change24h >= 0;
+      var card = document.createElement("article");
+      card.className = "card card--lift data-card";
+      card.setAttribute("role", "listitem");
+      card.innerHTML =
+        '<div class="data-card-top"><div>' +
+          '<div class="data-card-symbol">' + esc(cfg.display || a.symbol) + '</div>' +
+          '<div class="data-card-name">' + esc(a.name) + '</div>' +
+        '</div><span class="badge badge-demo">' + esc(DEMO) + '</span></div>' +
+        '<div class="data-card-price">' + fmtPrice(a.price) + '</div>' +
+        '<div class="data-card-change ' + (up ? "up" : "down") + '">' + fmtChange(a.change24h) + ' <span class="text-muted" style="font-weight:400">24h</span></div>' +
+        '<div class="data-card-spark" aria-hidden="true"></div>' +
+        '<div class="data-card-meta">' +
+          '<span>Volume<b>' + esc(a.volume) + '</b></span>' +
+          '<span style="text-align:right">Mkt Cap<b>' + esc(a.marketCap) + '</b></span>' +
+        '</div>';
+      pulse.appendChild(card);
+      C.sparkline(card.querySelector(".data-card-spark"), a.spark, {
+        ariaLabel: (cfg.display || a.symbol) + " 24h trend, " + (up ? "up" : "down") + " " + Math.abs(a.change24h).toFixed(2) + " percent"
+      });
+    });
+
+    /* ---------- TODAY'S BRIEF ---------- */
+    var briefWrap = document.getElementById("todays-brief");
+    D.brief.forEach(function (b) {
+      var card = document.createElement("article");
+      card.className = "card brief-card";
+      card.setAttribute("role", "listitem");
+      card.innerHTML =
+        '<span class="badge badge-cat">' + esc(b.tag) + '</span>' +
+        '<h3>' + esc(b.title) + '</h3>' +
+        '<p>' + esc(b.text) + '</p>';
+      briefWrap.appendChild(card);
+    });
+
+    /* ---------- MARKET OVERVIEW TABS ---------- */
+    var CATS = [
+      { key: "crypto", label: "Crypto", blurb: "Digital assets across majors and the broader market." },
+      { key: "stocks", label: "Stocks", blurb: "US equity benchmarks and single-name coverage." },
+      { key: "forex", label: "Forex", blurb: "Major currency pairs and central-bank context." },
+      { key: "commodities", label: "Commodities", blurb: "Metals and energy with demand-side context." },
+      { key: "macro", label: "Macro", blurb: "Policy, cycles and cross-asset flows that move everything." }
+    ];
+    var NEWS_IMAGES = {
+      crypto: "/assets/img/asgx-coin.jpg",
+      web3: "/assets/img/tokenomics.jpg",
+      macro: "/assets/img/movement.jpg",
+      stocks: "/assets/img/website-structure.jpg",
+      forex: "/assets/img/ecosystem-overview.jpg"
+    };
+    var tabsWrap = document.getElementById("overview-tabs");
+    var panel = document.getElementById("overview-panel");
+
+    function renderPanel(catKey) {
+      var cat = CATS.filter(function (c) { return c.key === catKey; })[0];
+      panel.innerHTML = "";
+      var list = D.assets.filter(function (a) { return a.category === catKey; })
+        .sort(function (x, y) { return Math.abs(y.change24h) - Math.abs(x.change24h); })
+        .slice(0, 3);
+
+      if (!list.length) {
+        var note = document.createElement("div");
+        note.className = "card";
+        note.innerHTML = '<h3 class="card-title">' + esc(cat.label) + '</h3>' +
+          '<p class="card-text">' + esc(cat.blurb) + ' Full macro coverage — policy decisions, economic releases and regime analysis — lives on the Markets page.</p>' +
+          '<a class="btn btn-outline btn-sm" href="/markets/#macro">Open macro coverage</a>';
+        panel.appendChild(note);
+        return;
+      }
+
+      var grid = document.createElement("div");
+      grid.className = "grid-cards grid-cards--sm";
+      list.forEach(function (a) {
+        var up = a.change24h >= 0;
+        var card = document.createElement("article");
+        card.className = "card data-card";
+        card.innerHTML =
+          '<div class="data-card-top"><div>' +
+            '<div class="data-card-symbol">' + esc(a.symbol) + '</div>' +
+            '<div class="data-card-name">' + esc(a.name) + '</div>' +
+          '</div><span class="badge ' + (up ? "badge-up" : "badge-down") + '">' + fmtChange(a.change24h) + '</span></div>' +
+          '<div class="data-card-price">' + fmtPrice(a.price) + '</div>' +
+          '<div class="data-card-spark" aria-hidden="true"></div>';
+        grid.appendChild(card);
+        C.sparkline(card.querySelector(".data-card-spark"), a.spark, {
+          ariaLabel: a.symbol + " trend, " + (up ? "up" : "down")
+        });
+      });
+      panel.appendChild(grid);
+    }
+
+    CATS.forEach(function (cat, i) {
+      var tab = document.createElement("button");
+      tab.className = "tab";
+      tab.type = "button";
+      tab.setAttribute("role", "tab");
+      tab.id = "ov-tab-" + cat.key;
+      tab.textContent = cat.label;
+      tab.setAttribute("aria-selected", i === 0 ? "true" : "false");
+      tab.tabIndex = i === 0 ? 0 : -1;
+      tab.addEventListener("click", function () { selectTab(i); });
+      tabsWrap.appendChild(tab);
+    });
+    function selectTab(i) {
+      var tabs = tabsWrap.querySelectorAll(".tab");
+      tabs.forEach(function (t, j) {
+        t.setAttribute("aria-selected", j === i ? "true" : "false");
+        t.tabIndex = j === i ? 0 : -1;
+      });
+      tabs[i].focus();
+      renderPanel(CATS[i].key);
+    }
+    tabsWrap.addEventListener("keydown", function (e) {
+      var tabs = Array.prototype.slice.call(tabsWrap.querySelectorAll(".tab"));
+      var cur = tabs.indexOf(document.activeElement);
+      if (cur === -1) return;
+      var next = null;
+      if (e.key === "ArrowRight") next = (cur + 1) % tabs.length;
+      if (e.key === "ArrowLeft") next = (cur - 1 + tabs.length) % tabs.length;
+      if (e.key === "Home") next = 0;
+      if (e.key === "End") next = tabs.length - 1;
+      if (next !== null) { e.preventDefault(); selectTab(next); }
+    });
+    renderPanel("crypto");
+
+    /* ---------- LATEST NEWS ---------- */
+    var newsWrap = document.getElementById("latest-news");
+    D.news.slice(0, 4).forEach(function (n) {
+      var card = document.createElement("article");
+      card.className = "card card--lift news-card";
+      card.setAttribute("role", "listitem");
+      var img = NEWS_IMAGES[n.category] || "/assets/img/movement.jpg";
+      card.innerHTML =
+        '<div class="news-card-img"><img src="' + img + '" alt="" loading="lazy"></div>' +
+        '<div class="news-card-body">' +
+          '<span class="badge badge-cat">' + esc(n.category) + '</span>' +
+          '<h3 class="news-card-title"><a href="/news/' + esc(n.slug) + '/">' + esc(n.title) + '</a></h3>' +
+          '<p class="news-card-excerpt">' + esc(n.excerpt) + '</p>' +
+          '<div class="news-card-meta"><span>' + fmtDate(n.date) + '</span><span>' + esc(n.source) + '</span></div>' +
+        '</div>';
+      newsWrap.appendChild(card);
+    });
+
+    /* ---------- FEATURED ANALYSIS ---------- */
+    var anWrap = document.getElementById("featured-analysis");
+    D.analysis.slice(0, 2).forEach(function (a, i) {
+      var card = document.createElement("article");
+      card.className = "card card--lift article-card";
+      card.setAttribute("role", "listitem");
+      var img = i === 0 ? "/assets/img/movement.jpg" : "/assets/img/website-structure.jpg";
+      card.innerHTML =
+        '<div class="article-card-img"><img src="' + img + '" alt="" loading="lazy"></div>' +
+        '<div class="article-card-body">' +
+          '<span class="badge badge-cat">' + esc(a.category) + ' analysis</span>' +
+          '<h3><a href="/analysis/#' + esc(a.slug) + '">' + esc(a.title) + '</a></h3>' +
+          '<p>' + esc(a.summary) + '</p>' +
+          '<div class="news-card-meta"><span>' + fmtDate(a.date) + '</span></div>' +
+        '</div>';
+      anWrap.appendChild(card);
+    });
+
+    /* ---------- AI AGENTS ---------- */
+    var agentWrap = document.getElementById("agent-grid");
+    D.agents.forEach(function (ag) {
+      var card = document.createElement("article");
+      card.className = "card card--lift agent-card";
+      card.setAttribute("role", "listitem");
+      card.innerHTML =
+        '<div class="agent-card-head">' +
+          '<div class="agent-card-icon" aria-hidden="true">' + esc(ag.name.charAt(0)) + '</div>' +
+          '<div><h3 class="agent-card-name">' + esc(ag.name) + '</h3>' +
+          '<div class="agent-card-role">' + esc(ag.role) + '</div></div>' +
+        '</div>' +
+        '<p class="agent-card-desc">' + esc(ag.description) + '</p>' +
+        '<div class="agent-card-foot">' +
+          '<span class="badge badge-dev">' + esc(ag.status) + '</span>' +
+          '<a class="btn btn-ghost btn-sm" href="/ai-agents/#' + esc(ag.id) + '">Details &rarr;</a>' +
+        '</div>';
+      agentWrap.appendChild(card);
+    });
+  });
+  </script>
+</body>
+</html>

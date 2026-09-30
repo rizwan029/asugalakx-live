@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markets — ASUGALAKX</title>
+  <meta name="description" content="Markets overview across crypto, stocks, forex and commodities — sortable demo tables, sparklines, trend filters and a personal watchlist. Sample data only.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASUGALAKX">
+  <meta property="og:title" content="Markets — ASUGALAKX">
+  <meta property="og:description" content="Crypto, stocks, forex and commodities in one demo dashboard: sortable tables, sparklines, trend filters and watchlists.">
+  <meta property="og:url" content="https://asugalakx.com/markets/">
+  <meta property="og:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Markets — ASUGALAKX">
+  <meta name="twitter:description" content="Crypto, stocks, forex and commodities in one demo dashboard: sortable tables, sparklines, trend filters and watchlists.">
+  <meta name="twitter:image" content="https://asugalakx.com/assets/img/asgx-coin.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/asgx-coin.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .watch-star{background:none;border:0;color:var(--text-3);font-size:1.05rem;cursor:pointer;padding:2px 6px 2px 0;line-height:1;vertical-align:middle}
+    .watch-star:hover{color:var(--amber)}
+    .watch-star[aria-pressed="true"]{color:var(--amber)}
+    .th-sort{background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0;display:inline-flex;gap:6px;align-items:center}
+    .th-sort:hover{color:var(--violet)}
+    th .sort-ind{font-size:.7em;color:var(--text-3)}
+    th[aria-sort="descending"] .sort-ind::after{content:"\25BC"}
+    th[aria-sort="ascending"] .sort-ind::after{content:"\25B2"}
+    .spark-cell{width:110px;height:36px;margin-left:auto}
+    .asset-cell{display:flex;align-items:center;gap:6px}
+    .controls-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0}
+    .controls-row .search-field{flex:1 1 240px;max-width:360px}
+    .search-icon{color:var(--text-3)}
+  </style>
+  <script>window.ASGX_PAGE = { title: "Markets", active: "markets" };</script>
+  <script src="/assets/js/data.js" defer></script>
+  <script src="/assets/js/charts.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+</head>
+<body>
+  <div id="asgx-nav"></div>
+  <main id="asgx-main">
+    <nav class="container" aria-label="Breadcrumb" style="padding-top:24px">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Markets</li>
+      </ol>
+    </nav>
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Market Data</span>
+        <h1>MARKETS</h1>
+        <p class="lead">Real-time-style market overview across major asset classes.</p>
+        <p class="mt-4"><span class="badge badge-demo">DEMO DATA</span></p>
+        <p class="text-muted mt-4" style="max-width:640px">All figures on this page are fictional sample data for demonstration purposes only. They do not represent live market prices and are not investment recommendations.</p>
+      </div>
+    </section>
+
+    <section class="section section--flush-top" aria-label="Market data by asset class">
+      <div class="container">
+        <div class="tabs" role="tablist" aria-label="Asset classes">
+          <button class="tab" role="tab" id="tab-crypto" aria-controls="panel-crypto" aria-selected="true">Crypto</button>
+          <button class="tab" role="tab" id="tab-stocks" aria-controls="panel-stocks" aria-selected="false" tabindex="-1">Stocks</button>
+          <button class="tab" role="tab" id="tab-forex" aria-controls="panel-forex" aria-selected="false" tabindex="-1">Forex</button>
+          <button class="tab" role="tab" id="tab-commodities" aria-controls="panel-commodities" aria-selected="false" tabindex="-1">Commodities</button>
+          <button class="tab" role="tab" id="tab-macro" aria-controls="panel-macro" aria-selected="false" tabindex="-1">Macro</button>
+        </div>
+
+        <!-- CRYPTO -->
+        <div class="tab-panel is-active" id="panel-crypto" role="tabpanel" aria-labelledby="tab-crypto" tabindex="0">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Crypto</span>
+              <h2 class="section-title">Crypto Markets</h2>
+              <p class="section-sub">Sample snapshot of major cryptoassets by 24-hour performance.</p>
+            </div>
+            <span class="badge badge-demo">DEMO DATA</span>
+          </div>
+          <div class="controls-row">
+            <div class="search-field">
+              <span class="search-icon" aria-hidden="true">&#8981;</span>
+              <input type="search" id="search-crypto" placeholder="Search symbol or name" aria-label="Search crypto assets">
+            </div>
+            <div class="filters" role="group" aria-label="Filter crypto assets by trend">
+              <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="filter-chip" data-filter="gainers" aria-pressed="false">Gainers</button>
+              <button type="button" class="filter-chip" data-filter="losers" aria-pressed="false">Losers</button>
+              <button type="button" class="filter-chip" data-filter="watchlist" aria-pressed="false">Watchlist</button>
+            </div>
+          </div>
+          <h3 class="card-title mb-4">Top by 24h change</h3>
+          <div class="grid-cards" id="cards-crypto" role="list" aria-label="Top crypto assets by 24h change"></div>
+          <h3 class="card-title mt-8 mb-4">All crypto assets</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="table-crypto">
+              <caption class="visually-hidden">Crypto assets with sample prices, 24-hour change, volume, market cap and trend</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Asset</th>
+                  <th scope="col" data-col="price" aria-sort="none"><button type="button" class="th-sort">Price <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col" data-col="change" aria-sort="none"><button type="button" class="th-sort">24H <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col">Volume</th>
+                  <th scope="col" data-col="mcap" aria-sort="none"><button type="button" class="th-sort">Market Cap <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col">Trend</th>
+                  <th scope="col" style="text-align:right">Chart</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="table-note" data-note></p>
+        </div>
+
+        <!-- STOCKS -->
+        <div class="tab-panel" id="panel-stocks" role="tabpanel" aria-labelledby="tab-stocks" tabindex="0" hidden>
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Stocks</span>
+              <h2 class="section-title">Stock Markets</h2>
+              <p class="section-sub">Sample benchmark levels and large-cap equity movers.</p>
+            </div>
+            <span class="badge badge-demo">DEMO DATA</span>
+          </div>
+          <div class="controls-row">
+            <div class="search-field">
+              <span class="search-icon" aria-hidden="true">&#8981;</span>
+              <input type="search" id="search-stocks" placeholder="Search symbol or name" aria-label="Search stock assets">
+            </div>
+            <div class="filters" role="group" aria-label="Filter stock assets by trend">
+              <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="filter-chip" data-filter="gainers" aria-pressed="false">Gainers</button>
+              <button type="button" class="filter-chip" data-filter="losers" aria-pressed="false">Losers</button>
+              <button type="button" class="filter-chip" data-filter="watchlist" aria-pressed="false">Watchlist</button>
+            </div>
+          </div>
+          <h3 class="card-title mb-4">Top by 24h change</h3>
+          <div class="grid-cards" id="cards-stocks" role="list" aria-label="Top stock assets by 24h change"></div>
+          <h3 class="card-title mt-8 mb-4">All stock assets</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="table-stocks">
+              <caption class="visually-hidden">Stock assets with sample prices, 24-hour change, volume, market cap and trend</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Asset</th>
+                  <th scope="col" data-col="price" aria-sort="none"><button type="button" class="th-sort">Price <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col" data-col="change" aria-sort="none"><button type="button" class="th-sort">24H <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col">Volume</th>
+                  <th scope="col" data-col="mcap" aria-sort="none"><button type="button" class="th-sort">Market Cap <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col">Trend</th>
+                  <th scope="col" style="text-align:right">Chart</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="table-note" data-note></p>
+        </div>
+
+        <!-- FOREX -->
+        <div class="tab-panel" id="panel-forex" role="tabpanel" aria-labelledby="tab-forex" tabindex="0" hidden>
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Forex</span>
+              <h2 class="section-title">Currency Pairs</h2>
+              <p class="section-sub">Sample foreign-exchange rates against the US dollar.</p>
+            </div>
+            <span class="badge badge-demo">DEMO DATA</span>
+          </div>
+          <div class="controls-row">
+            <div class="search-field">
+              <span class="search-icon" aria-hidden="true">&#8981;</span>
+              <input type="search" id="search-forex" placeholder="Search symbol or name" aria-label="Search forex pairs">
+            </div>
+            <div class="filters" role="group" aria-label="Filter forex pairs by trend">
+              <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="filter-chip" data-filter="gainers" aria-pressed="false">Gainers</button>
+              <button type="button" class="filter-chip" data-filter="losers" aria-pressed="false">Losers</button>
+              <button type="button" class="filter-chip" data-filter="watchlist" aria-pressed="false">Watchlist</button>
+            </div>
+          </div>
+          <h3 class="card-title mb-4">Top by 24h change</h3>
+          <div class="grid-cards" id="cards-forex" role="list" aria-label="Top forex pairs by 24h change"></div>
+          <h3 class="card-title mt-8 mb-4">All currency pairs</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="table-forex">
+              <caption class="visually-hidden">Currency pairs with sample rates, 24-hour change and trend</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Asset</th>
+                  <th scope="col" data-col="price" aria-sort="none"><button type="button" class="th-sort">Price <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col" data-col="change" aria-sort="none"><button type="button" class="th-sort">24H <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col">Volume</th>
+                  <th scope="col" data-col="mcap" aria-sort="none"><button type="button" class="th-sort">Market Cap <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col">Trend</th>
+                  <th scope="col" style="text-align:right">Chart</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="table-note" data-note></p>
+        </div>
+
+        <!-- COMMODITIES -->
+        <div class="tab-panel" id="panel-commodities" role="tabpanel" aria-labelledby="tab-commodities" tabindex="0" hidden>
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Commodities</span>
+              <h2 class="section-title">Commodity Markets</h2>
+              <p class="section-sub">Sample spot prices for precious metals and energy.</p>
+            </div>
+            <span class="badge badge-demo">DEMO DATA</span>
+          </div>
+          <div class="controls-row">
+            <div class="search-field">
+              <span class="search-icon" aria-hidden="true">&#8981;</span>
+              <input type="search" id="search-commodities" placeholder="Search symbol or name" aria-label="Search commodity assets">
+            </div>
+            <div class="filters" role="group" aria-label="Filter commodity assets by trend">
+              <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="filter-chip" data-filter="gainers" aria-pressed="false">Gainers</button>
+              <button type="button" class="filter-chip" data-filter="losers" aria-pressed="false">Losers</button>
+              <button type="button" class="filter-chip" data-filter="watchlist" aria-pressed="false">Watchlist</button>
+            </div>
+          </div>
+          <h3 class="card-title mb-4">Top by 24h change</h3>
+          <div class="grid-cards" id="cards-commodities" role="list" aria-label="Top commodity assets by 24h change"></div>
+          <h3 class="card-title mt-8 mb-4">All commodity assets</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="table-commodities">
+              <caption class="visually-hidden">Commodity assets with sample prices, 24-hour change and trend</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Asset</th>
+                  <th scope="col" data-col="price" aria-sort="none"><button type="button" class="th-sort">Price <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col" data-col="change" aria-sort="none"><button type="button" class="th-sort">24H <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col">Volume</th>
+                  <th scope="col" data-col="mcap" aria-sort="none"><button type="button" class="th-sort">Market Cap <span class="sort-ind" aria-hidden="true"></span></button></th>
+                  <th scope="col">Trend</th>
+                  <th scope="col" style="text-align:right">Chart</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="table-note" data-note></p>
+        </div>
+
+        <!-- MACRO -->
+        <div class="tab-panel" id="panel-macro" role="tabpanel" aria-labelledby="tab-macro" tabindex="0" hidden>
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Macro</span>
+              <h2 class="section-title">Macro Indicators</h2>
+              <p class="section-sub">High-level economic context for market regimes.</p>
+            </div>
+            <span class="badge badge-demo">DEMO DATA</span>
+          </div>
+          <div class="callout mt-6">
+            <strong>Illustrative sample data.</strong> Macro indicators shown here are fictional sample values included to demonstrate layout and context framing. They are not sourced from any statistical agency or central bank and should not be used for analysis or decision-making.
+          </div>
+          <div class="stat-row mt-8" role="list" aria-label="Sample macro indicators">
+            <div class="stat" role="listitem"><span class="stat-value">4.25&ndash;4.50%</span><span class="stat-label">US Fed Funds Rate (target range) &middot; sample</span></div>
+            <div class="stat" role="listitem"><span class="stat-value">2.7%</span><span class="stat-label">US CPI, year-on-year &middot; sample</span></div>
+            <div class="stat" role="listitem"><span class="stat-value">4.2%</span><span class="stat-label">US Unemployment Rate &middot; sample</span></div>
+            <div class="stat" role="listitem"><span class="stat-value">4.31%</span><span class="stat-label">US 10Y Treasury Yield &middot; sample</span></div>
+            <div class="stat" role="listitem"><span class="stat-value">2.00%</span><span class="stat-label">ECB Deposit Facility Rate &middot; sample</span></div>
+          </div>
+          <p class="table-note mt-6" data-note></p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <div id="asgx-footer"></div>
+  <script>
+    document.addEventListener("asgx:ready", function () {
+      "use strict";
+      var D = window.ASGX_DATA;
+      var C = window.ASGX_CHARTS;
+      var DEMO = D.meta.demoLabel;
+      var CATS = ["crypto", "stocks", "forex", "commodities"];
+
+      function esc(s) {
+        return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      }
+      function fmtPrice(v) {
+        var dec = Math.abs(v) < 10 ? 4 : 2;
+        return Number(v).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+      }
+      function fmtChange(v) {
+        return (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+      }
+      function capValue(m) {
+        if (!m || m === "\u2014") return -1;
+        var mm = String(m).match(/^([\d.]+)([TBMK])$/);
+        if (!mm) return -1;
+        var mult = { T: 1e12, B: 1e9, M: 1e6, K: 1e3 }[mm[2]];
+        return parseFloat(mm[1]) * mult;
+      }
+
+      /* ---------- watchlist (localStorage) ---------- */
+      function getWatch() {
+        try { return JSON.parse(localStorage.getItem("asgx-watchlist")) || []; }
+        catch (e) { return []; }
+      }
+      function setWatch(list) {
+        try { localStorage.setItem("asgx-watchlist", JSON.stringify(list)); } catch (e) {}
+      }
+      function inWatch(sym) { return getWatch().indexOf(sym) > -1; }
+      function toggleWatch(sym) {
+        var w = getWatch(), i = w.indexOf(sym);
+        if (i > -1) { w.splice(i, 1); } else { w.push(sym); }
+        setWatch(w);
+      }
+      function starBtn(a) {
+        var on = inWatch(a.symbol);
+        return '<button type="button" class="watch-star" data-symbol="' + esc(a.symbol) + '"' +
+          ' aria-pressed="' + on + '"' +
+          ' aria-label="' + (on ? "Remove " : "Add ") + esc(a.symbol) + (on ? " from" : " to") + ' watchlist">' +
+          (on ? "\u2605" : "\u2606") + "</button>";
+      }
+
+      /* ---------- tabs ---------- */
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+      function selectTab(i) {
+        tabs.forEach(function (t, j) {
+          var on = i === j;
+          t.setAttribute("aria-selected", on ? "true" : "false");
+          t.tabIndex = on ? 0 : -1;
+          var panel = document.getElementById(t.getAttribute("aria-controls"));
+          panel.classList.toggle("is-active", on);
+          if (on) { panel.removeAttribute("hidden"); } else { panel.setAttribute("hidden", ""); }
+        });
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener("click", function () { selectTab(i); });
+        t.addEventListener("keydown", function (e) {
+          var next = null;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+          if (e.key === "Home") next = 0;
+          if (e.key === "End") next = tabs.length - 1;
+          if (next !== null) { e.preventDefault(); selectTab(next); tabs[next].focus(); }
+        });
+      });
+
+      /* ---------- per-category state ---------- */
+      var st = {};
+      CATS.forEach(function (k) { st[k] = { q: "", f: "all", sortKey: null, sortDir: -1 }; });
+
+      function catAssets(k) {
+        return D.assets.filter(function (a) { return a.category === k; });
+      }
+      function filtered(k) {
+        var s = st[k], q = s.q.trim().toLowerCase();
+        var list = catAssets(k).filter(function (a) {
+          if (q && a.symbol.toLowerCase().indexOf(q) < 0 && a.name.toLowerCase().indexOf(q) < 0) return false;
+          if (s.f === "gainers" && a.change24h < 0) return false;
+          if (s.f === "losers" && a.change24h >= 0) return false;
+          if (s.f === "watchlist" && !inWatch(a.symbol)) return false;
+          return true;
+        });
+        if (s.sortKey) {
+          list = list.slice().sort(function (x, y) {
+            var vx, vy;
+            if (s.sortKey === "price") { vx = x.price; vy = y.price; }
+            else if (s.sortKey === "change") { vx = x.change24h; vy = y.change24h; }
+            else { vx = capValue(x.marketCap); vy = capValue(y.marketCap); }
+            return (vx - vy) * s.sortDir;
+          });
+        }
+        return list;
+      }
+
+      function dataCard(a) {
+        var up = a.change24h >= 0;
+        var card = document.createElement("article");
+        card.className = "card card--lift data-card";
+        card.setAttribute("role", "listitem");
+        card.innerHTML =
+          '<div class="data-card-top"><div>' +
+            '<div class="data-card-symbol">' + esc(a.symbol) + "</div>" +
+            '<div class="data-card-name">' + esc(a.name) + "</div>" +
+          '</div><span class="badge badge-demo">' + esc(DEMO) + "</span></div>" +
+          '<div class="data-card-price">' + fmtPrice(a.price) + "</div>" +
+          '<div class="data-card-change ' + (up ? "up" : "down") + '">' + fmtChange(a.change24h) +
+            ' <span class="text-muted" style="font-weight:400">24h</span></div>' +
+          '<div class="data-card-spark" aria-hidden="true"></div>' +
+          '<div class="data-card-meta">' +
+            "<span>Volume<b>" + esc(a.volume) + "</b></span>" +
+            '<span style="text-align:right">Mkt Cap<b>' + esc(a.marketCap) + "</b></span>" +
+          "</div>";
+        return card;
+      }
+
+      function trendBadge(a) {
+        var up = a.change24h >= 0;
+        return '<span class="badge ' + (up ? "badge-up" : "badge-down") + '">' +
+          (up ? "\u25B2 Up" : "\u25BC Down") + "</span>";
+      }
+
+      function renderPanel(k) {
+        var s = st[k];
+        /* top cards by 24h change */
+        var wrap = document.getElementById("cards-" + k);
+        wrap.innerHTML = "";
+        catAssets(k).slice().sort(function (a, b) { return b.change24h - a.change24h; })
+          .slice(0, 4).forEach(function (a) {
+            var card = dataCard(a);
+            wrap.appendChild(card);
+            C.sparkline(card.querySelector(".data-card-spark"), a.spark, {
+              ariaLabel: a.symbol + " sample trend, " + fmtChange(a.change24h)
+            });
+          });
+        /* table */
+        var rows = filtered(k);
+        var tbody = document.querySelector("#table-" + k + " tbody");
+        tbody.innerHTML = "";
+        if (!rows.length) {
+          tbody.innerHTML = '<tr><td colspan="7" class="text-muted" style="text-align:center;padding:28px">' +
+            "No assets match your search or filter.</td></tr>";
+        }
+        rows.forEach(function (a) {
+          var up = a.change24h >= 0;
+          var tr = document.createElement("tr");
+          tr.innerHTML =
+            '<td><div class="asset-cell">' + starBtn(a) + "<div>" +
+              '<div class="cell-main">' + esc(a.symbol) + "</div>" +
+              '<div class="text-muted" style="font-size:.8rem">' + esc(a.name) + "</div>" +
+            "</div></div></td>" +
+            '<td class="num">' + fmtPrice(a.price) + "</td>" +
+            '<td class="num ' + (up ? "pos" : "neg") + '">' + fmtChange(a.change24h) + "</td>" +
+            '<td class="num">' + esc(a.volume) + "</td>" +
+            '<td class="num">' + esc(a.marketCap) + "</td>" +
+            "<td>" + trendBadge(a) + "</td>" +
+            '<td><div class="spark-cell" aria-hidden="true"></div></td>';
+          tbody.appendChild(tr);
+          C.sparkline(tr.querySelector(".spark-cell"), a.spark, {
+            width: 110, height: 36, strokeWidth: 1.5,
+            ariaLabel: a.symbol + " sample intraday trend"
+          });
+        });
+        /* sort indicators */
+        var ths = document.querySelectorAll("#table-" + k + " th[data-col]");
+        Array.prototype.forEach.call(ths, function (th) {
+          var col = th.getAttribute("data-col");
+          th.setAttribute("aria-sort",
+            s.sortKey === col ? (s.sortDir === 1 ? "ascending" : "descending") : "none");
+        });
+      }
+
+      /* ---------- wire controls per category ---------- */
+      CATS.forEach(function (k) {
+        var input = document.getElementById("search-" + k);
+        input.addEventListener("input", function () {
+          st[k].q = input.value;
+          renderPanel(k);
+        });
+        var panel = document.getElementById("panel-" + k);
+        panel.querySelectorAll(".filter-chip").forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            panel.querySelectorAll(".filter-chip").forEach(function (c) {
+              c.setAttribute("aria-pressed", "false");
+            });
+            chip.setAttribute("aria-pressed", "true");
+            st[k].f = chip.getAttribute("data-filter");
+            renderPanel(k);
+          });
+        });
+        panel.querySelectorAll("th[data-col] .th-sort").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var col = btn.closest("th").getAttribute("data-col");
+            if (st[k].sortKey === col) { st[k].sortDir *= -1; }
+            else { st[k].sortKey = col; st[k].sortDir = -1; }
+            renderPanel(k);
+          });
+        });
+        panel.querySelector("#table-" + k + " tbody").addEventListener("click", function (e) {
+          var b = e.target.closest(".watch-star");
+          if (!b) return;
+          toggleWatch(b.getAttribute("data-symbol"));
+          renderPanel(k);
+        });
+        renderPanel(k);
+      });
+
+      /* data notes */
+      Array.prototype.forEach.call(document.querySelectorAll("[data-note]"), function (el) {
+        el.textContent = D.meta.dataNote;
+      });
+    });
+  </script>
+</body>
+</html>
